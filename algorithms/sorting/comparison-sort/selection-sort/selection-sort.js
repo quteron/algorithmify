@@ -18,61 +18,67 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
-/**
- * Swaps two elements in an array by their indexes.
- * @param {Array} array original array
- * @param {int} i index of the first element to swap
- * @param {int} j index of the second element to swap
- * @return {void}
- */
-function swap(array, i, j) {
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
-
-/**
- * Checks whether first passed element is less than second passed element.
- * @param array original array
- * @param i index of the first element
- * @param j index of the second element
- * @returns {boolean} if true if first element is less than second, otherwise - false.
- */
-function less(array, i, j) {
-    return array[i] < array[j];
-}
-
-/**
- * Sorts in-place an array using selection sort algorithm.
- * @param {Array} array original array to be sort
- * @param lo index of the first element to be sorted
- * @param hi index of the last element to be sorted
- * @return {Array} sorted array
- */
-function sort(array, lo, hi) {
-    var i, j, min;
-
-    if (lo === undefined) {
-        lo = 0;
+(function() {
+    /**
+     * Swaps two elements in an array by their indexes.
+     * @param {Array} array original array
+     * @param {int} i index of the first element to swap
+     * @param {int} j index of the second element to swap
+     * @return {void}
+     */
+    function swap(array, i, j) {
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
-
-    if (hi === undefined) {
-        hi = array.length - 1;
+    
+    /**
+     * Checks whether first passed element is less than second passed element.
+     * @param array original array
+     * @param i index of the first element
+     * @param j index of the second element
+     * @returns {boolean} if true if first element is less than second, otherwise - false.
+     */
+    function less(array, i, j) {
+        return array[i] < array[j];
     }
-
-    for (i = lo; i < hi; i++) {
-        min = i;
-        for (j = i + 1; j <= hi; j++) {
-            if (less(array, j, min)) {
-                min = j;
+    
+    /**
+     * Sorts in-place an array using selection sort algorithm.
+     * @param {Array} array original array to be sort
+     * @param lo index of the first element to be sorted
+     * @param hi index of the last element to be sorted
+     * @return {Array} sorted array
+     */
+    function sort(array, lo, hi) {
+        var i, j, min;
+    
+        if (lo === undefined) {
+            lo = 0;
+        }
+    
+        if (hi === undefined) {
+            hi = array.length - 1;
+        }
+    
+        for (i = lo; i < hi; i++) {
+            min = i;
+            for (j = i + 1; j <= hi; j++) {
+                if (less(array, j, min)) {
+                    min = j;
+                }
+            }
+    
+            if (i != min) {
+                swap(array, i, min);
             }
         }
-
-        if (i != min) {
-            swap(array, i, min);
-        }
+    
+        return array;
     }
+    
+    var array = [5, 4, 2, 3, 1]
+    sort(array);
+    console.log(array);
 
-    return array;
-}
+}());
