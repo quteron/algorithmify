@@ -13,7 +13,7 @@ To calculate the cost of each algorithm, we will count the number of **compares*
 In almost all [sorting algorithms][sorting-algorithm] that we will look at in this tutorial we will use two basic operations:
 
 * [compare two elements between each other](#compare-elements-between-each-other);
-* [swap two elements of the array](#swap-elements-of-the-array).
+* [swap two elements in the array](#swap-elements-in-the-array).
 
 For simplication, let's create for these two operations two small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
 
