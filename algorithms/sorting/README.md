@@ -70,17 +70,11 @@ As we have learned by this moment the objective of [sorting][] is to rearrange i
 
 In computer science [order][] of items means that these items are placed in sequence based on the selected rule. Based of this rule one can usually define the following [orders][order] of items: 
 
-* **Increasing Order**  
-A sequence of elements is said to be in an *increasing order* if the next following element is greater that the previous one. This order occurs when the sequence contains only unique values. For instance, 1, 2, 3, 4 are in an *increasing order*, as every next element is greater than the previous one.
+* **Increasing / Non-Increasing Order**  
+A sequence of elements is said to be in an *increasing order* if the next following element is greater that the previous one. For instance, 1, 2, 3, 4. This order occurs when the sequence contains only unique values. If the sequence does contain duplicate values, for instance, 1, 2, 2, 3, 4, it's in a *non-increasing order*. The only difference is that the next following element may be equal to the previous one.
 
-* **Non-Increasing Order**  
-It's similar to *increasing* order, the only difference is that the next following element may be equal to the previous one. This order occurs when the seqience contains duplicate values. For instance, 1, 2, 2, 3, 4 are in a *non-increasing order*, as every next element is greater or equals than the previous one.
-
-* **Decreasing Order**  
-A sequence of elements is said to be in an *decreasing order* if the next following element is less that the previous one. This order occurs when the sequence contains only unique values. For instance, 4, 3, 2, 1 are in an *decreasing order*, as every next element is less than the previous one.
-
-* **Non-decreasing Order**  
-It's similar to *decreasing* order, the only difference is that the next following element may be equal to the previous one. This order occurs when the seqience contains duplicate values. For instance, 4, 3, 2, 2, 1 are in a *non-decreasing order*, as every next element is less or equals than the previous one.
+* **Decreasing / Non-Decreasing Order**  
+A sequence of elements is said to be in an *decreasing order* if the next following element is less that the previous one. For instance, 4, 3, 2, 1. This order occurs when the sequence contains only unique values. If the sequence does contain duplicate values, for instance, 4, 3, 2, 2, 1, it's in a *non-decreasing order*. The only difference is that the next following element may be equal to the previous one.
 
 ### Our Goal
 Keep in mind that our goal is not only to learn a dozens of different ways to sort data. The goal is to learn how to select the most efficient way among dozens of them. 
