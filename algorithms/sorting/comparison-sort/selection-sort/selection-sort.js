@@ -20,8 +20,8 @@
  */
 (function() {
     /**
-     * Swaps two elements in an array by their indexes.
-     * @param {Array} array original array
+     * Swaps two elements in an array by their indeces.
+     * @param {Array} array original
      * @param {int} i index of the first element to swap
      * @param {int} j index of the second element to swap
      * @return {void}
@@ -34,9 +34,9 @@
     
     /**
      * Checks whether first passed element is less than second passed element.
-     * @param array original array
-     * @param i index of the first element
-     * @param j index of the second element
+     * @param {Array} array original
+     * @param {int} i index of the first element
+     * @param {int} j index of the second element
      * @returns {boolean} if true if first element is less than second, otherwise - false.
      */
     function less(array, i, j) {
@@ -46,8 +46,8 @@
     /**
      * Sorts in-place an array using selection sort algorithm.
      * @param {Array} array original array to be sort
-     * @param lo index of the first element to be sorted
-     * @param hi index of the last element to be sorted
+     * @param {int} lo index of the first element to be sorted
+     * @param {int} hi index of the last element to be sorted
      * @return {Array} sorted array
      */
     function sort(array, lo, hi) {
@@ -77,8 +77,11 @@
         return array;
     }
     
-    var array = [5, 4, 2, 3, 1]
-    sort(array);
-    console.log(array);
-
+    var a1 = [5, 4, 2, 3, 1]
+    sort(a1);
+    console.log(a1); // [1, 2, 3, 4, 5]
+    
+    var a2 = [5, 4, 2, 1, 3];
+    sort(a2, 1, 3);
+    console.log(a2); // [5, 1, 2, 4, 3]
 }());
