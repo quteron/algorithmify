@@ -63,7 +63,7 @@ This attribute defines whether or not a [comparison sort][] is used.
 * **Comparison Algorithm**  
 A *comparison* [sorting algorithm][sorting-algorithm] examines elements in the array **only** by comparing two elements with a **comparison operator**. 
 * **Non-Comparison Algorithm**  
-A *non-comparison* [sorting algorithms][sorting-algorithm] uses a **non-comparison** operator to examine elements and put them in a proper order.
+A *non-comparison* [sorting algorithms][sorting-algorithm] **does not** use a **comparison** operator to examine elements and put them in a proper order, it rather uses some arithmetic operators, element preprocessing, etc. 
 
 ### Important terms
 As we have learned by this moment the objective of [sorting][] is to rearrange items in some order. But what is this order?
