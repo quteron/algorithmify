@@ -85,6 +85,9 @@ There are multiple ways to solve a single problem, and we need to learn to choos
 
 Let's get started!
 
+**Next Articles**:  
+[Comparison Sort Algorithms](comparison-sort/README.md "Comparison Sort Algorithms")
+
 [sorting-algorithm]: https://en.wikipedia.org/wiki/Sorting_algorithm "Sorting Algorithm - Wikipedia"
 [sorting]: https://en.wikipedia.org/wiki/Sorting "Sorting - Wikipedia"
 [comparison sort]: https://en.wikipedia.org/wiki/Comparison_sort "Comparison Sort - Wikipedia"
