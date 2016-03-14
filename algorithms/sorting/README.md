@@ -98,12 +98,3 @@ Let's get started!
 [lexicographical]: https://en.wikipedia.org/wiki/Lexicographical_order "Lexicographical Order - Wikipedia"
 [recursion]: https://en.wikipedia.org/wiki/Recursion "Recursion - Wikipedia"
 [analysis of algorithms]: https://en.wikipedia.org/wiki/Analysis_of_algorithms "Analysis of Algorithms - Wikipedia"
-[Bubble Sort]: bubble-sort/README.md
-[Selection Sort]: selection-sort/README.md
-[Insertion Sort]: insertion-sort/README.md
-[Merge Sort]: merge-sort/README.md
-[Quick Sort]: quick-sort/README.md
-[Heap Sort]: heap-sort/README.md
-[Radix Sort]: radix-sort/README.md
-[Integer Sort]: integer-sort/README.md
-[Counting Sort]: counting-sort/README.md
