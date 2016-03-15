@@ -170,4 +170,4 @@ That is it for the [Selection Sort][]. As you can see it's not much efficient. N
 [sorting-algorithm]: ../../README.md
 [in-place]: ../../README.md#in-place-and-not-in-place
 [comparison sort]: ../README.md
-[next]: ../insertion-sort/Insertion-Sort.md "Insertion Sort Algorithm"
+[next]: ../insertion-sort/README.md "Insertion Sort Algorithm"
