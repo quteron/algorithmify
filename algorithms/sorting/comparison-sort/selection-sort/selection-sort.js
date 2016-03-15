@@ -51,14 +51,15 @@
      * @return {Array} sorted array
      */
     function sort(array, lo, hi) {
-        var i, j, min;
+        var n = array.length,
+            i, j, min;
     
         if (lo === undefined) {
             lo = 0;
         }
     
         if (hi === undefined) {
-            hi = array.length - 1;
+            hi = n - 1;
         }
     
         for (i = lo; i < hi; i++) {
@@ -77,11 +78,11 @@
         return array;
     }
     
-    var a1 = [5, 4, 2, 3, 1]
+    var a1 = [5, 2, 1, 3, 4];
     sort(a1);
     console.log(a1); // [1, 2, 3, 4, 5]
     
-    var a2 = [5, 4, 2, 1, 3];
+    var a2 = [5, 2, 1, 3, 4];
     sort(a2, 1, 3);
-    console.log(a2); // [5, 1, 2, 4, 3]
+    console.log(a2); // [5, 1, 2, 3, 4]
 }());
