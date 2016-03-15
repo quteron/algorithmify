@@ -20,7 +20,7 @@ Next we find the *next smallest element*, looking only through items in the unso
 
 This process is repeated until the moment when the unsorted part becomes empty and the sorted part contains all elements of the array correctly sorted.
 
-Sounds pretty simple, does not it? As on each iteration we are **selecting** next smallest item, algorithm is called [Selection Sort][].
+Sounds pretty simple, does not it? On each iteration we **select** next smallest item to put it at the correct spot, hence the name of the algoirthm - [Selection Sort][].
 
 ### Example
 Let's look at simple example. Consider we have the following array:  
