@@ -2,10 +2,10 @@
 Our journey with [comparison sort][] algorithms begins. But before moving to detailed algorithm implementation and analysis, let's spend a minute discussing our *rules of the game*.
 
 ### Rules of the Game
-By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. Let's define that by default our task is to sort elements of the array in **ascending order** (means [non-increasing order][]), unless the other order is indicated. It does not really matter of what type array elements are, but for simplication let's assume that it is **integer** values.    
+By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. Let's define that by default our task is to sort elements of the array in **ascending order** (means [non-increasing order][]), unless the other order is indicated. It does not really matter of what type array elements are, but for simplification let's assume that it is **integer** values.    
 
 ### Cost model
-To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. Truthly saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm will do less number of comparisons. 
+To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. Truly saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm will do less number of comparisons. 
 
 To calculate the cost of each algorithm, we will count the number of **compares** and **swaps**. For algorithms that don't use *swaps*, we will count **array accesses**. Thus, we will be able to compare all [comparison sort][] algorithms by comparing these metrics.
 
@@ -15,7 +15,7 @@ In almost all [sorting algorithms][sorting-algorithm] that we will look at in th
 * [compare two elements between each other](#compare-elements-between-each-other);
 * [swap two elements in the array](#swap-elements-in-the-array).
 
-For simplication, let's create for these two operations small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
+For simplification, let's create for these two operations small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
 
 #### Compare elements between each other
 Here we will usually check whether the element at first passed index is less than the element at second passed index:

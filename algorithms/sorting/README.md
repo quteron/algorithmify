@@ -25,7 +25,7 @@ Well, these items, in theory, should be listed based on their priority - the mos
 That is why an efficient [sorting algorithm][sorting-algorithm] is a very important thing. I have doubts that you would agree to wait 5 minutes to sort products by price or cinema tickets by play time. But this is only one side. The other side is that from computer science an efficient [sorting algorithm][sorting-algorithm] is very important for optimizing the use of other algorithms that would not be so efficient or even developed without [sorting].
 
 ### Classification
-As you have already guessed there are lots of [sorting algorithms][sorting-algorithm] and to prevent being lost in such complicated *"sorting"* world, let's define major attrinutes that can be applied to any [sorting algorithm][sorting-algorithm] . This will also help us compare algorithms between each other later.
+As you have already guessed there are lots of [sorting algorithms][sorting-algorithm] and to prevent being lost in such complicated *"sorting"* world, let's define major attributes that can be applied to any [sorting algorithm][sorting-algorithm] . This will also help us compare algorithms between each other later.
 
 #### Stable and Not Stable
 Each [sorting algorithm][sorting-algorithm] can be either *stable* or *not stable* but not both at once.
@@ -63,7 +63,7 @@ This attribute defines whether or not a [comparison sort][] is used.
 * **Comparison Algorithm**  
 A *comparison* [sorting algorithm][sorting-algorithm] examines elements in the array **only** by comparing two elements with a **comparison operator**. 
 * **Non-Comparison Algorithm**  
-A *non-comparison* [sorting algorithms][sorting-algorithm] **does not** use a **comparison** operator to examine elements and put them in a proper order, it rather uses some arithmetic operators, element preprocessing, etc. 
+A *non-comparison* [sorting algorithms][sorting-algorithm] **does not** use a **comparison** operator to examine elements and put them in a proper order, it rather uses some arithmetic operators, element pre-processing, etc. 
 
 ### Important terms
 As we have learned by this moment the objective of [sorting][] is to rearrange items in some order. But what is this order?
