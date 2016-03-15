@@ -66,6 +66,8 @@ And once again moves by one element the boundary of the unsorted part. Now we ha
 The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsroted part and complete sorting:  
 ![Initial Array](images/sorted-array.png)
 
+Now we have a bigger picture of how this algorithm works. Let's move to its implementation.
+
 ### Algorithm Invariants
 Based on the discussed example let's define invariants that we need to check during the algorithm implementation for its correct behaviour. As you can see for any position `i` in the array the following should be true:
 
@@ -75,7 +77,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * except element at position `i-1` there is no other elements to the left of the position `i` that can be equals any elements to the right of the position `i` (including element at position `i`).
 
 ### Implementation
-AS you remember we have already defined two auxiliary routines for elements comparison and swaping. To complete implementation of the entire algorithm, we need to have the following:
+As you remember we have already defined two auxiliary routines for elements comparison and swaping. To complete implementation of the entire algorithm, we need to have the following:
 
 * inner loop to find next smallest item in the array;
 * outer loop to swap found smallest item with the current entry.
