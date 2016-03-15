@@ -1,5 +1,5 @@
 ## Selection Sort
-Today we are going to look at another elementary sorting algorithm - [Selection Sort][]. This is an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but is also a good example to be known for educationl purpose. 
+Today we are going to look at another elementary sorting algorithm - [Selection Sort][]. This is an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but is also a good example to be known for educational purpose. 
 
 So let's get started!
 
@@ -20,7 +20,7 @@ Next we find the *next smallest element*, looking only through items in the unso
 
 This process is repeated until the moment when the unsorted part becomes empty and the sorted part contains all elements of the array correctly sorted.
 
-Sounds pretty simple, does not it? On each iteration we **select** next smallest item to put it at the correct spot, hence the name of the algoirthm - [Selection Sort][].
+Sounds pretty simple, does not it? On each iteration we **select** next smallest item to put it at the correct spot, hence the name of the algorithm - [Selection Sort][].
 
 ### Example
 Let's look at simple example. Consider we have the following array:  
@@ -33,7 +33,7 @@ To get the first *smallest element* we scan the entire list sequentially and fin
 So we swap it with the *first* entry of the array ![Initial Array](images/found-5.png)  
 ![Initial Array](images/first-swap.png)
 
-Thus, we have that our sorted part starts containg one element and the boundary of the unsorted part moves by one element to the right.  
+Thus, we have that our sorted part starts containing one element and the boundary of the unsorted part moves by one element to the right.  
 ![Initial Array](images/first-sorted.png)
 ####Iteration #2 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-2.png):  
@@ -63,7 +63,7 @@ And once again moves by one element the boundary of the unsorted part. Now we ha
 ![Initial Array](images/4th-sorted.png)
  
 ####Iteration #5
-The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsroted part and complete sorting:  
+The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsorted part and complete sorting:  
 ![Initial Array](images/sorted-array.png)
 
 Now we have a bigger picture of how this algorithm works. Let's move to its implementation.
@@ -109,7 +109,7 @@ As you can see we start at position `0` and go till the last position of the arr
 As all elements to the left of the current position are *frozen*, we cannot observe them for the smallest one. So we temporary assume that next smallest element is at position `i` (current *cursor* position) and start our inner loop from `i+1` position till the end of the array. Each element on the right of the position `i` we compare with current found smallest element at position `min`. If current observing item is less than we found before, we save its position to the variable `min`. It becomes our new smallest item.  
 
 ### Improvements
-Even it's a very simple algorithm we can add some improvements to make it evene better.
+Even it's a very simple algorithm we can add some improvements to make it even better.
 
 First of all it may happen that next smallest element that we are looking for is already in place, at current position `i`. In this case we are swapping it with itself that sounds silly. Let's add a guard to avoid such redundant exchange:
 ```javascript
@@ -146,20 +146,20 @@ function sort(array) {
 ### Analysis
 Let's think what we can learn from this algorithm.
 
-* **It's in-place algorthm**  
+* **It's in-place algorithm**  
 As you can see we don't use any additional memory except one variable to store the position of the smallest element.
 
 * **It's not stable**  
 As elements of the array move round because of swaps, it breaks elements relative order. So if array contains some equal values, there is a big chance that their relative order will be broken at the end.
 
 * **Insensitive to the input array state**  
-As you can see we iterate through the items of the array looking for the smallest item independently of the initial array state. Even if array is already sorted, we will still look through all elements to the right starting from the first position. It sounds a litle bit odd, apparently, we will waste our time. But it's how this algorithm is designed. So this algorithm is **non-adaptive**.
+As you can see we iterate through the items of the array looking for the smallest item independently of the initial array state. Even if array is already sorted, we will still look through all elements to the right starting from the first position. It sounds a little bit odd, apparently, we will waste our time. But it's how this algorithm is designed. So this algorithm is **non-adaptive**.
  
 * **Minimal number of swaps**  
-As you can see we swap array items only in the outer array. So there can be not more than `n-1` exchanges for the array of `n` elements. That means that we have **linear number of swaps**. It's really a good value. No other sorting algorithms can boast of such good performance. In situations in which moving elements is nore expensive than comparing then, this algorithm performs beter than others.
+As you can see we swap array items only in the outer array. So there can be not more than `n-1` exchanges for the array of `n` elements. That means that we have **linear number of swaps**. It's really a good value. No other sorting algorithms can boast of such good performance. In situations in which moving elements is more expensive than comparing then, this algorithm performs better than others.
 
 * **Has O(n^2) complexity**  
-As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the lagorithm is non-adaptive to the initila state of the array. AS we already learned even if array is already sroted, the algorithm will still performs the sam number of comparisons.
+As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the algorithm is non-adaptive to the initial state of the array. AS we already learned even if array is already sorted, the algorithm will still performs the sam number of comparisons.
 
 You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
 

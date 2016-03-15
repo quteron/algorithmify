@@ -20,7 +20,7 @@
  */
 (function() {
     /**
-     * Swaps two elements in an array by their indeces.
+     * Swaps two elements in an array by their indices.
      * @param {Array} array original
      * @param {int} i index of the first element to swap
      * @param {int} j index of the second element to swap
