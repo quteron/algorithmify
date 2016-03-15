@@ -30,7 +30,7 @@ Let's look at simple example. Consider we have the following array:
 To get the first *smallest element* we scan the entire list sequentially and find that it is ![Initial Array](images/found-1.png):  
 ![Initial Array](images/first-smallest.png)
 
-So we swap ![Initial Array](images/found-1.png) with the *first* entry of the array - ![Initial Array](images/found-5.png)  
+So we swap it with the *first* entry of the array ![Initial Array](images/found-5.png)  
 ![Initial Array](images/first-swap.png)
 
 Thus, we have that our sorted part starts containg one element and the boundary of the unsorted part moves by one element to the right.  
@@ -39,33 +39,31 @@ Thus, we have that our sorted part starts containg one element and the boundary 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-2.png):  
 ![Initial Array](images/second-smallest.png)
 
-And as it stays in the correct position, we actually do nothing, only moves by one element the boundary of the unsorted part:  
+And as it stays at the correct position, we actually do nothing, only moves by one element the boundary of the unsorted part:  
 ![Initial Array](images/second-sorted.png)
 
 ####Iteration #3 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
 ![Initial Array](images/3th-smallest.png)
 
-And we swap it with the leftmost element (that is the *third* entry of the array) - ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
 ![Initial Array](images/3th-swap.png)
 
-By moving by one element the boundary of the unsorted part, we now have **three** elements sorted, it's great. Keep going!  
+After moving by one element the boundary of the unsorted part, we have **three** elements sorted:  
 ![Initial Array](images/3th-sorted.png)
 
 ####Iteration #4
 The next *smallest* element that we find is ![Initial Array](images/found-4.png):  
 ![Initial Array](images/4th-smallest.png)
 
-And we swap it with the leftmost element (that is the *fourth* entry of the array) - ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
 ![Initial Array](images/4th-swap.png)
 
 And once again moves by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
 ![Initial Array](images/4th-sorted.png)
  
 ####Iteration #5
-The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsroted part and complete sorting. 
-
-Here is the sorted output:  
+The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsroted part and complete sorting:  
 ![Initial Array](images/sorted-array.png)
 
 ### Algorithm Invariants
@@ -85,7 +83,7 @@ AS you remember we have already defined two auxiliary routines for elements comp
 That's it, it's really simple as it sounds. Here is the implementation:
 ```javascript
 function sort(array) {
-    var n = array.lnegth, 
+    var n = array.length, 
 		i, j, min;
 
     for (i = 0; i < n; i++) {
@@ -103,7 +101,7 @@ function sort(array) {
 }
 ```
 
-As you can see we start at position `0` and go till the last position of the array. For each position we are looking for the next smallest element, observing only elements to the right of the current position. That is done to guard our invariants:
+As you can see we start at position `0` and go till the last position of the array. For each position we are looking for the next smallest element, observing only elements to the right of the current position. That is done to guard our invariant:
 > all elements to the left of the position `i` are already sorted and fixed, it means that they won't be touched starting from this moment
 
 As all elements to the left of the current position are *frozen*, we cannot observe them for the smallest one. So we temporary assume that next smallest element is at position `i` (current *cursor* position) and start our inner loop from `i+1` position till the end of the array. Each element on the right of the position `i` we compare with current found smallest element at position `min`. If current observing item is less than we found before, we save its position to the variable `min`. It becomes our new smallest item.  
@@ -159,7 +157,7 @@ As you can see we iterate through the items of the array looking for the smalles
 As you can see we swap array items only in the outer array. So there can be not more than `n-1` exchanges for the array of `n` elements. That means that we have **linear number of swaps**. It's really a good value. No other sorting algorithms can boast of such good performance. In situations in which moving elements is nore expensive than comparing then, this algorithm performs beter than others.
 
 * **Has O(n^2) complexity**  
-As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the lagorithm is non-adaptive to the initila state of the array. AS we already learned even if array is already sroted, the algorithm will still performs the sam number of comparisons.
+As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the lagorithm is non-adaptive to the initila state of the array. AS we already learned even if array is already sroted, the algorithm will still performs the sam number of comparisons.
 
 You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
 
