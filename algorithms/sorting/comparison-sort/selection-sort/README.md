@@ -148,7 +148,7 @@ Let's think what we can learn from this algorithm.
 As you can see we don't use any additional memory except one variable to store the position of the smallest element.
 
 * **It's not stable**  
-As we swap elements by random indeces on each iteration, we break elements relative order and cannot restore it back at the end. So if array contains some equal values, there is a big chance that their relative order will be broken at the end.
+As elements of the array move round because of swaps, it breaks elements relative order. So if array contains some equal values, there is a big chance that their relative order will be broken at the end.
 
 * **Insensitive to the input array state**  
 As you can see we iterate through the items of the array looking for the smallest item independently of the initial array state. Even if array is already sorted, we will still look through all elements to the right starting from the first position. It sounds a litle bit odd, apparently, we will waste our time. But it's how this algorithm is designed. So this algorithm is **non-adaptive**.
