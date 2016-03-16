@@ -1,70 +1,65 @@
-## Selection Sort
-Today we are going to look at another elementary sorting algorithm - [Selection Sort][]. This is an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but is also a good example to be known for educational purpose. 
+## Insertion Sort
+Today we are going to look at yet another elementary sorting algorithm - [Insertion Sort][]. This is typically the third [sorting algorithm][overview] to study in computer science, after [Bubble Sort][bubble-sort] and [Selection Sort][selection-sort]. It's again an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but at some circumstances can perform better than previously discussed two algorithms. 
 
 So let's get started!
 
 ### Rules of the Game
-The main idea is to divide array into two parts:
+The main idea is again to divide array into two parts:
 
 * sorted part at left end; 
 * unsorted part at right end.
 
-Initially the sorted part is empty and the unsorted part is the entire list. Then we find the *smallest element* in the unsorted part and swap it with the *leftmost element* of that part. As the unsorted part is the entire list at the moment, we actually swap with the *first entry* of the array. 
+Initially the sorted part is empty and the unsorted part is the entire list. Then we add the first leftmost element (that is the first entry of the array) of the unsorted part to the sorted section. As an array of one item is always sorted, we just move by one element the boundary of the unsorted part and complete the first step.
 
-Thus, we have:
+Then on the second step we again add the next leftmost element (that is the second entry of the array) of the unsorted part to the sorted part. Now as an array of two elements is not always sorted, we need to put this newly added element at the correct position in the sorted part to keep it sorted: 
 
-* found smallest element becomes new first entry of the array and the first element in the sorted part;
-* all other elements are still in the unsorted part.
-
-Next we find the *next smallest element*, looking only through items in the unsorted part, and swap it again with the *leftmost element* of that part (that is the *second entry* of the array at the moment). That next smallest element becomes the second element in the sorted part, the boundary of the unsorted part moves by one element to the right again.
+* if the new element goes after or equals the last element in the sorted part, then we do nothing and move to the next iteration;  
+* if it goes before the last element in the sorted part, then we delete its values (copy it to the temporal variable) and shift the last sorted element into the new vacant spot. We repeat the shift for all elements from the sorted part until reach the one that is less than or equal our memorized value;
+* if we reach element in the sorted part that less than or equal memorized value, we push our memorized value on the spot before such element;
+* if we reach the start of the array (so we have shifted all sorted elements to the right), we push our memorized value as new first entry in the sorted part of the array. 
 
 This process is repeated until the moment when the unsorted part becomes empty and the sorted part contains all elements of the array correctly sorted.
 
-Sounds pretty simple, does not it? On each iteration we **select** next smallest item to put it at the correct spot, hence the name of the algorithm - [Selection Sort][].
+So on each iteration we **insert** next leftmost element from the unsorted part to the sorted part, hence the name of the algorithm - [Insertion Sort][].
 
 ### Example
 Let's look at simple example. Consider we have the following array:  
-![Initial array](images/initial-array.png)
+![Initial Array](images/initial-array.png)
 
 ####Iteration #1  
-To get the first *smallest element* we scan the entire list sequentially and find that it is ![Initial Array](images/found-1.png):  
-![Find the smallest item](images/first-smallest.png)
-
-So we swap it with the *first* entry of the array ![Initial Array](images/found-5.png)  
-![Swap the smallest with the leftmost item](images/first-swap.png)
-
-Thus, we have that our sorted part starts containing one element and the boundary of the unsorted part moves by one element to the right.  
+We just insert the leftmost element ![Initial Array](images/found-5.png) of the unsorted part to the sorted part and move to the next iteation:  
 ![First element is sorted](images/first-sorted.png)
+
 ####Iteration #2 
-The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-2.png):  
-![Find next smallest item](images/second-smallest.png)
+Next we add next leftmost element ![Initial Array](images/found-5.png) of the unsorted path to the sorted part:
+![Seond element is inserted](images/second-insert.png)
 
 And as it stays at the correct position, we actually do nothing, only moves by one element the boundary of the unsorted part:  
-![Second elemet is sorted](images/second-sorted.png)
+![Initial Array](images/second-sorted.png)
 
 ####Iteration #3 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
-![Find 3th smallest item](images/3th-smallest.png)
+![Initial Array](images/3th-smallest.png)
 
 And we swap it with the leftmost element (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
-![Swap the smallest with the leftmost item](images/3th-swap.png)
+![Initial Array](images/3th-swap.png)
 
 After moving by one element the boundary of the unsorted part, we have **three** elements sorted:  
-![3th element is sorted](images/3th-sorted.png)
+![Initial Array](images/3th-sorted.png)
 
 ####Iteration #4
 The next *smallest* element that we find is ![Initial Array](images/found-4.png):  
-![Find 4th smallest item](images/4th-smallest.png)
+![Initial Array](images/4th-smallest.png)
 
 And we swap it with the leftmost element (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
-![Swap the samllest with the leftmost item](images/4th-swap.png)
+![Initial Array](images/4th-swap.png)
 
 And once again moves by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
-![4th element is sorted](images/4th-sorted.png)
+![Initial Array](images/4th-sorted.png)
  
 ####Iteration #5
 The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsorted part and complete sorting:  
-![Sorted array](images/sorted-array.png)
+![Initial Array](images/sorted-array.png)
 
 Now we have a bigger picture of how this algorithm works. Let's move to its implementation.
 
@@ -161,13 +156,15 @@ As you can see we swap array items only in the outer array. So there can be not 
 * **Has O(n^2) complexity**  
 As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the algorithm is non-adaptive to the initial state of the array. AS we already learned even if array is already sorted, the algorithm will still performs the sam number of comparisons.
 
-You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
+You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
 ### Summary 
-That is it for the [Selection Sort][]. As you can see it's not much efficient. Next time we will look at [Insertion Sort Algorithm][next].
+That is it for the [Insertion Sort][]. As you can see it's not much efficient. Next time we will look at [Merge Sort Algorithm][next].
 
-[Selection Sort]: https://en.wikipedia.org/wiki/Selection_sort "Selection Sort - Wikipedia"
-[sorting-algorithm]: ../../README.md
+[Insertion Sort]: https://en.wikipedia.org/wiki/Insertion_sort "Insertion Sort - Wikipedia"
+[overview]: ../../README.md
 [in-place]: ../../README.md#in-place-and-not-in-place
 [comparison sort]: ../README.md
-[next]: ../insertion-sort/README.md "Insertion Sort Algorithm"
+[next]: ../merge-sort/README.md "Merge Sort Algorithm"
+[bubble-sort]: ../bubble-sort/README.md "Bubble Sort Algorithm"
+[selection-sort]: ../selection-sort/README.md "Selection Sort Algorithm"
