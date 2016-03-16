@@ -22,10 +22,10 @@ In almost all [sorting algorithms][sorting-algorithm] that we will look at in th
 For simplification, let's create for these two operations small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
 
 #### Compare elements between each other
-Here we will check whether the element at first passed index is less than the element at second passed index:
+Here we will check whether the first element is less than the second element:
 ```javascript
-function less(array, i, j) {
-    return array[i] < array[j];
+function less(a, b) {
+    return a < b;
 }
 ```
 
