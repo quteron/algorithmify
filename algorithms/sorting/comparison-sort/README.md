@@ -4,7 +4,7 @@ Our journey with [comparison sort][] algorithms begins. But before moving to det
 ### Rules of the Game
 By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. 
 
-So let's assume that by default our task is always to sort elements of the array in **ascending order** (means [non-increasing order][]), unless the other order is indicated. And from algorithm implementation it does not really matter of what type array elements are, but for simplication let's assume that it is **integer** values.    
+So let's assume that by default our task is always to sort elements of the array in **ascending order** (means [non-decreasing order][]), unless the other order is indicated. And from algorithm implementation it does not really matter of what type array elements are, but for simplication let's assume that it is **integer** values.    
 
 ### Cost model
 To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. 
@@ -81,7 +81,7 @@ It's not the full list of all developed [sorting algorithms][sorting-algorithm] 
 [sorting-algorithm]: https://en.wikipedia.org/wiki/Sorting_algorithm "Sorting Algorithm - Wikipedia"
 [sorting]: https://en.wikipedia.org/wiki/Sorting "Sorting - Wikipedia"
 [comparison sort]: https://en.wikipedia.org/wiki/Comparison_sort "Comparison Sort - Wikipedia" 
-[non-increasing order]: ../README.md#important-terms
+[non-decreasing order]: ../README.md#important-terms
 [Bubble Sort]: bubble-sort/README.md
 [Selection Sort]: selection-sort/README.md
 [Insertion Sort]: insertion-sort/README.md
