@@ -4,7 +4,7 @@ Today we are going to look at another elementary sorting algorithm - [Selection 
 So let's get started!
 
 ### Rules of the Game
-The main idea is to divide array into two parts:
+The basic idea is to divide array into two parts:
 
 * sorted part at left end; 
 * unsorted part at right end.

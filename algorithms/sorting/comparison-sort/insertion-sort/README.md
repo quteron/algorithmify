@@ -4,7 +4,7 @@ Today we are going to look at yet another elementary sorting algorithm - [Insert
 So let's get started!
 
 ### Rules of the Game
-The main idea is again to divide array into two parts:
+The basic idea is again to divide array into two parts:
 
 * sorted part at left end; 
 * unsorted part at right end.

@@ -18,58 +18,95 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
-/**
- * Swaps two elements in an array by their indexes.
- * @param {Array} array original array
- * @param {int} i index of the first element to swap
- * @param {int} j index of the second element to swap
- * @return {void}
- */
-function swap(array, i, j) {
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
-
-/**
- * Checks whether first passed element is less than second passed element.
- * @param array original array
- * @param i index of the first element
- * @param j index of the second element
- * @returns {boolean} if true if first element is less than second, otherwise - false.
- */
-function less(array, i, j) {
-    return array[i] < array[j];
-}
-
-/**
- * Sorts in-place an array using bubble sort algorithm.
- * @param {Array} array original array to be sort
- * @param lo index of the first element to be sorted
- * @param hi index of the last element to be sorted
- * @return {Array} sorted array
- */
-function sort(array, lo, hi) {
-    var i, swapped;
-
-    if (lo === undefined) {
-        lo = 0;
+(function () {
+    /**
+     * Swaps two elements in an array by their indexes.
+     * @param {Array} array original array
+     * @param {int} i index of the first element to swap
+     * @param {int} j index of the second element to swap
+     * @return {void}
+     */
+    function swap(array, i, j) {
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
-    if (hi === undefined) {
-        hi = array.length - 1;
+    /**
+     * Checks whether first passed element is less than second passed element.
+     * @param {int} a first element to compare
+     * @param {int} b second element to compare
+     * @returns {boolean} if true if first element is less than second, otherwise - false.
+     */
+    function less(a, b) {
+        return a < b;
     }
 
-    do {
-        swapped = false;
-        for (i = lo; i < hi; i++) {
-            if(less(array, i + 1, i)) {
-                swap(array, i + 1, i);
-                swapped = true;
+    /**
+     * Checks whether passed array is sorted.
+     * @param {Array} array to be checked
+     * @param {int} lo index of the first element to be sorted
+     * @param {int} hi index of the last element to be sorted
+     * @returns {boolean} if true if array is sorted, otherwise - false.
+     */
+    function sorted(array, lo, hi) {
+        var n = array.length,
+            i;
+
+        if (lo === undefined) {
+            lo = 0;
+        }
+
+        if (hi === undefined) {
+            hi = n - 1;
+        }
+
+        for (i = lo; i <= hi; i++) {
+            if (less(array[i], array[i - 1])) {
+                return false;
             }
         }
-    } while (swapped);
 
-    return array;
-}
+        return true;
+    }
+
+    /**
+     * Sorts in-place an array using bubble sort algorithm.
+     * @param {Array} array original array to be sort
+     * @param lo index of the first element to be sorted
+     * @param hi index of the last element to be sorted
+     * @return {Array} sorted array
+     */
+    function sort(array, lo, hi) {
+        var i, swapped;
+
+        if (lo === undefined) {
+            lo = 0;
+        }
+
+        if (hi === undefined) {
+            hi = array.length - 1;
+        }
+
+        do {
+            swapped = false;
+            for (i = lo; i < hi; i++) {
+                if (less(array[i + 1], array[i])) {
+                    swap(array, i + 1, i);
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+
+        return array;
+    }
+
+    var a1 = [5, 2, 1, 3, 4];
+    sort(a1);
+    console.log(sorted(a1));
+    console.log(a1); // [1, 2, 3, 4, 5]
+
+    var a2 = [5, 2, 1, 3, 4];
+    sort(a2, 1, 3);
+    console.log(a2); // [5, 1, 2, 3, 4]
+}());

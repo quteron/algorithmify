@@ -18,21 +18,19 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-(function() {
+(function () {
     /**
      * Moves element by its index to one position to the right.
      * @param {Array} array original array
      * @param {int} i index of the first element to swap
-     * @param {int} j index of the second element to swap
      * @return {void}
      */
     function shiftRight(array, i) {
         array[i + 1] = array[i];
     }
-    
+
     /**
      * Checks whether first passed element is less than second passed element.
-     * @param {Array} array original array
      * @param {int} a first element to compare
      * @param {int} b second element to compare
      * @returns {boolean} if true if first element is less than second, otherwise - false.
@@ -43,31 +41,32 @@
 
     /**
      * Checks whether passed array is sorted.
-     * @param {Array} array to be cheked
+     * @param {Array} array to be checked
      * @param {int} lo index of the first element to be sorted
      * @param {int} hi index of the last element to be sorted
      * @returns {boolean} if true if array is sorted, otherwise - false.
      */
     function sorted(array, lo, hi) {
-        var n = array.length, 
+        var n = array.length,
             i;
-    
+
         if (lo === undefined) {
             lo = 0;
         }
-    
+
         if (hi === undefined) {
             hi = n - 1;
         }
-        
-        for (i = 1; i <= n; i++) {
+
+        for (i = lo; i <= hi; i++) {
             if (less(array[i], array[i - 1])) {
                 return false;
             }
         }
-    
+
         return true;
     }
+
     /**
      * Sorts in-place an array using insertion sort algorithm.
      * @param {Array} array original array to be sort
@@ -76,35 +75,35 @@
      * @return {Array} sorted array
      */
     function sort(array, lo, hi) {
-        var n = array.length, 
+        var n = array.length,
             i, j, temp;
-    
+
         if (lo === undefined) {
             lo = 0;
         }
-    
+
         if (hi === undefined) {
             hi = n - 1;
         }
-    
+
         for (i = lo + 1; i <= hi; i++) {
             temp = array[i];
-            
-            for(j = i - 1; j >= lo && less(temp, array[j]); j--) {
+
+            for (j = i - 1; j >= lo && less(temp, array[j]); j--) {
                 shiftRight(array, j);
             }
-            
+
             array[j + 1] = temp;
         }
-    
+
         return array;
     }
-    
+
     var a1 = [5, 2, 1, 3, 4];
     sort(a1);
     console.log(sorted(a1));
     console.log(a1); // [1, 2, 3, 4, 5]
-    
+
     var a2 = [5, 2, 1, 3, 4];
     sort(a2, 1, 3);
     console.log(a2); // [5, 1, 2, 3, 4]
