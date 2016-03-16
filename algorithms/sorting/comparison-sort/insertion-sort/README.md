@@ -27,7 +27,7 @@ Let's look at simple example. Consider we have the following array:
 ![Initial Array](images/initial-array.png)
 
 ####Iteration #1  
-We just insert the leftmost element ![Initial Array](images/found-5.png) of the unsorted part to the sorted part and move to the next iteation:  
+We just insert the leftmost element ![Initial Array](images/found-5.png) of the unsorted part to the sorted part and move to the next iteration:  
 ![First element is sorted](images/first-sorted.png)
 
 ####Iteration #2 
@@ -55,7 +55,7 @@ As we see the previous leftmost element in the sorted part ![Initial Array](imag
 Then we shift ![Initial Array](images/found-5.png) to the new vacant spot:  
 ![Initial Array](images/3th-shift-one.png)
 
-Then we compare next element from the sorted part with our temporal vairable. As we see ![Initial Array](images/found-2.png) goes after ![Initial Array](images/found-1.png), so we need one more shift:  
+Then we compare next element from the sorted part with our temporal variable. As we see ![Initial Array](images/found-2.png) goes after ![Initial Array](images/found-1.png), so we need one more shift:  
 ![Initial Array](images/3th-shift-two.png)
 
 As we reach the start of the array, no elements to shift, so we push back ![Initial Array](images/found-1.png) to the array:  
@@ -79,7 +79,7 @@ But here we need only one shift, the next element in the sorted part ![Initial A
 And the last element of the unsorted part comes:  
 ![Initial Array](images/5th-insert.png)
 
-We add it to the sorted part but unfortuantely cannot leave there as is. The previous leftmost element of the sorted part ![Initial Array](images/found-5.png) goes after our current element, so we once again need shift.
+We add it to the sorted part but unfortunately cannot leave there as is. The previous leftmost element of the sorted part ![Initial Array](images/found-5.png) goes after our current element, so we once again need shift.
 
 We remove our current element from the array and store it in the temporal variable:  
 ![Initial Array](images/5th-delete.png)
@@ -101,7 +101,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * except element at position `i-1` there is no other elements to the left of the position `i` that can be equals any elements to the right of the position `i` (including element at position `i`).
 
 ### Implementation
-As you remember we have already defined two auxiliary routines for elements comparison and swaping. To complete implementation of the entire algorithm, we need to have the following:
+As you remember we have already defined two auxiliary routines for elements comparison and swapping. To complete implementation of the entire algorithm, we need to have the following:
 
 * inner loop to find next smallest item in the array;
 * outer loop to swap found smallest item with the current entry.

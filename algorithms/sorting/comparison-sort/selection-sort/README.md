@@ -40,7 +40,7 @@ The next *smallest element* that we find in the unsorted part is ![Initial Array
 ![Find next smallest item](images/second-smallest.png)
 
 And as it stays at the correct position, we actually do nothing, only move by one element the boundary of the unsorted part:  
-![Second elemet is sorted](images/second-sorted.png)
+![Second element is sorted](images/second-sorted.png)
 
 ####Iteration #3 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
@@ -57,7 +57,7 @@ The next *smallest* element that we find is ![Initial Array](images/found-4.png)
 ![Find 4th smallest item](images/4th-smallest.png)
 
 And we swap it with the leftmost element of the unsorted part (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
-![Swap the samllest with the leftmost item](images/4th-swap.png)
+![Swap the smallest with the leftmost item](images/4th-swap.png)
 
 And once again move by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
 ![4th element is sorted](images/4th-sorted.png)
@@ -77,7 +77,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * except element at position `i-1` there is no other elements to the left of the position `i` that can be equal any elements to the right of the position `i` (including element at position `i`).
 
 ### Implementation
-As you remember we have already defined two auxiliary routines for elements comparison and swaping. To complete implementation of the entire algorithm, we need to have the following:
+As you remember we have already defined two auxiliary routines for elements comparison and swapping. To complete implementation of the entire algorithm, we need to have the following:
 
 * inner loop to find next smallest item in the array;
 * outer loop to swap found smallest item with the current entry.

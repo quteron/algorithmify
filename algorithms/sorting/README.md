@@ -48,7 +48,7 @@ It means that such [sorting algorithm][sorting-algorithm] in its turn **does** n
 #### Adaptive and Non-Adaptive
 It's another attribute defines how [sorting algorithm][sorting-algorithm] performs when array is partially sorted, will algorithm take this fact into account or not.
 
-* **Addaptive Algorithm**  
+* **Adaptive Algorithm**  
 A [sorting algorithm][sorting-algorithm] is said to be *adaptive* if it **does** take advantage of partially sorted array. This means that such algorithm will try not to touch already sorted elements and sort only the rest ones, thus, decreasing its execution time.
 
 * **Non-Adaptive Algorithm**  
