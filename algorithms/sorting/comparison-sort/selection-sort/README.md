@@ -18,7 +18,7 @@ Thus, we have:
 
 Next we find the *next smallest element*, looking only through items in the unsorted part, and swap it again with the *leftmost element* of that part (that is the *second entry* of the array at the moment). That next smallest element becomes the second element in the sorted part, the boundary of the unsorted part moves by one element to the right again.
 
-This process is repeated until the moment when the unsorted part becomes empty and the sorted part contains all elements of the array correctly sorted.
+This process is repeated until the moment the unsorted part becomes empty and the sorted part contains all elements of the array correctly sorted.
 
 Sounds pretty simple, does not it? On each iteration we **select** next smallest item to put it at the correct spot, hence the name of the algorithm - [Selection Sort][].
 
@@ -33,20 +33,20 @@ To get the first *smallest element* we scan the entire list sequentially and fin
 So we swap it with the *first* entry of the array ![Initial Array](images/found-5.png)  
 ![Swap the smallest with the leftmost item](images/first-swap.png)
 
-Thus, we have that our sorted part starts containing one element and the boundary of the unsorted part moves by one element to the right.  
+Thus, the sorted part contains one element and the boundary of the unsorted part moves by one element to the right.  
 ![First element is sorted](images/first-sorted.png)
 ####Iteration #2 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-2.png):  
 ![Find next smallest item](images/second-smallest.png)
 
-And as it stays at the correct position, we actually do nothing, only moves by one element the boundary of the unsorted part:  
+And as it stays at the correct position, we actually do nothing, only move by one element the boundary of the unsorted part:  
 ![Second elemet is sorted](images/second-sorted.png)
 
 ####Iteration #3 
 The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
 ![Find 3th smallest item](images/3th-smallest.png)
 
-And we swap it with the leftmost element (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element of the unsorted part (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
 ![Swap the smallest with the leftmost item](images/3th-swap.png)
 
 After moving by one element the boundary of the unsorted part, we have **three** elements sorted:  
@@ -56,14 +56,14 @@ After moving by one element the boundary of the unsorted part, we have **three**
 The next *smallest* element that we find is ![Initial Array](images/found-4.png):  
 ![Find 4th smallest item](images/4th-smallest.png)
 
-And we swap it with the leftmost element (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element of the unsorted part (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
 ![Swap the samllest with the leftmost item](images/4th-swap.png)
 
-And once again moves by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
+And once again move by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
 ![4th element is sorted](images/4th-sorted.png)
  
 ####Iteration #5
-The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just moves by one element the boundary of the unsorted part and complete sorting:  
+The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just move by one element the boundary of the unsorted part and complete sorting:  
 ![Sorted array](images/sorted-array.png)
 
 Now we have a bigger picture of how this algorithm works. Let's move to its implementation.
@@ -73,8 +73,8 @@ Based on the discussed example let's define invariants that we need to check dur
 
 * all elements to the left of the position `i` are already sorted and fixed, it means that they won't be touched starting from this moment; 
 * no elements to the right of the position `i` (including element at position `i`) are less than any elements to the left;
-* among elements to the right of the position `i` (including element at position `i`) might be some elements that are equals the element at position `i-1`;
-* except element at position `i-1` there is no other elements to the left of the position `i` that can be equals any elements to the right of the position `i` (including element at position `i`).
+* among elements to the right of the position `i` (including element at position `i`) might be some elements that are equal the element at position `i-1`;
+* except element at position `i-1` there is no other elements to the left of the position `i` that can be equal any elements to the right of the position `i` (including element at position `i`).
 
 ### Implementation
 As you remember we have already defined two auxiliary routines for elements comparison and swaping. To complete implementation of the entire algorithm, we need to have the following:
