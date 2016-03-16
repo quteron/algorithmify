@@ -9,7 +9,7 @@ So let's assume that by default our task is always to sort elements of the array
 ### Cost model
 To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. 
 
-Truely saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm will do less number of comparisons. 
+Truely saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm would do less number of comparisons. 
 
 To calculate the cost of each algorithm, we will count the number of **compares** and **swaps**. For algorithms that don't use *swaps*, we will count **array accesses**. Thus, we will compare all [comparison sort][] algorithms by comparing these metrics.
 
