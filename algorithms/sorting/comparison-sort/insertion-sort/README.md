@@ -31,15 +31,23 @@ We just insert the leftmost element ![Initial Array](images/found-5.png) of the 
 ![First element is sorted](images/first-sorted.png)
 
 ####Iteration #2 
-Next we add next leftmost element ![Initial Array](images/found-5.png) of the unsorted path to the sorted part:
+Next we add next leftmost element ![Initial Array](images/found-2.png) of the unsorted path to the sorted part:  
 ![Seond element is inserted](images/second-insert.png)
 
-And as it stays at the correct position, we actually do nothing, only moves by one element the boundary of the unsorted part:  
-![Initial Array](images/second-sorted.png)
+Then we check whether the previous element from the sorted part goes before this new added element or after. As we know ![Initial Array](images/found-5.png) goes after ![Initial Array](images/found-2.png), so we remove currently added element from the array and store it value in a temporary variable:  
+![Initial Array](images/second-delete.png)
+
+Then we shift ![Initial Array](images/found-5.png) by one position to the right into a new vacant spot:    
+![Initial Array](images/second-shift-one.png)
+
+As we reach the start of the array, there is no more elements to compare and shift, we push back ![Initial Array](images/found-2.png) to the array:  
+![First element is sorted](images/second-sorted.png)
+
+Now we have array of two elements sorted.
 
 ####Iteration #3 
-The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
-![Initial Array](images/3th-smallest.png)
+Next we added next leftmost element ![Initial Array](images/found-3.png) of the unsorted part to the sorted part:  
+![Initial Array](images/3th-insert.png)
 
 And we swap it with the leftmost element (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
 ![Initial Array](images/3th-swap.png)
