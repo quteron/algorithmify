@@ -27,44 +27,44 @@ Let's look at simple example. Consider we have the following array:
 ![Initial array](images/initial-array.png)
 
 ####Iteration #1  
-To get the first *smallest element* we scan the entire list sequentially and find that it is ![Initial Array](images/found-1.png):  
+To get the first *smallest element* we scan the entire list sequentially and find that it is ![1](images/found-1.png):  
 ![Find the smallest item](images/first-smallest.png)
 
-So we swap it with the *first* entry of the array ![Initial Array](images/found-5.png)  
+So we swap it with the *first* entry of the array ![5](images/found-5.png)  
 ![Swap the smallest with the leftmost item](images/first-swap.png)
 
 Thus, the sorted part contains one element and the boundary of the unsorted part moves by one element to the right.  
 ![First element is sorted](images/first-sorted.png)
 
 ####Iteration #2 
-The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-2.png):  
+The next *smallest element* that we find in the unsorted part is ![2](images/found-2.png):  
 ![Find next smallest item](images/second-smallest.png)
 
 And as it stays at the correct position, we actually do nothing, only move by one element the boundary of the unsorted part:  
 ![Second element is sorted](images/second-sorted.png)
 
 ####Iteration #3 
-The next *smallest element* that we find in the unsorted part is ![Initial Array](images/found-3.png):  
+The next *smallest element* that we find in the unsorted part is ![3](images/found-3.png):  
 ![Find 3th smallest item](images/3th-smallest.png)
 
-And we swap it with the leftmost element of the unsorted part (that is the *third* entry of the array) ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element of the unsorted part (that is the *third* entry of the array) ![5](images/found-5.png):  
 ![Swap the smallest with the leftmost item](images/3th-swap.png)
 
 After moving by one element the boundary of the unsorted part, we have **three** elements sorted:  
 ![3th element is sorted](images/3th-sorted.png)
 
 ####Iteration #4
-The next *smallest* element that we find is ![Initial Array](images/found-4.png):  
+The next *smallest* element that we find is ![4](images/found-4.png):  
 ![Find 4th smallest item](images/4th-smallest.png)
 
-And we swap it with the leftmost element of the unsorted part (that is the *fourth* entry of the array) ![Initial Array](images/found-5.png):  
+And we swap it with the leftmost element of the unsorted part (that is the *fourth* entry of the array) ![5](images/found-5.png):  
 ![Swap the smallest with the leftmost item](images/4th-swap.png)
 
 And once again move by one element the boundary of the unsorted part. Now we have **four** elements sorted.:  
 ![4th element is sorted](images/4th-sorted.png)
  
 ####Iteration #5
-The last smallest element is ![Initial Array](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just move by one element the boundary of the unsorted part and complete sorting:  
+The last smallest element is ![5](images/found-5.png) and it already stays at the correct position, as it's the last element in the unsorted part of the array. So we just move by one element the boundary of the unsorted part and complete sorting:  
 ![Sorted array](images/sorted-array.png)
 
 Now we have a bigger picture of how this algorithm works. Let's move to its implementation.
