@@ -43,7 +43,7 @@ Then we shift ![5](images/found-5.png) by one position to the right into the new
 As we reach the start of the array, there is no more elements to compare and shift, we push ![2](images/found-2.png) back to the array:  
 ![Two elements are sorted](images/second-sorted.png)
 
-Now we have array of two elements sorted.
+Now we have array of **two** elements sorted.
 
 ####Iteration #3 
 Then we add next leftmost element ![1](images/found-1.png) of the unsorted part to the sorted part:  
@@ -61,7 +61,7 @@ Then we compare next element from the sorted part with our temporal variable. As
 As we reach the start of the array, no elements to shift, so we push ![1](images/found-1.png) back to the array:  
 ![Three elements are sorted](images/3th-sorted.png)
 
-Now we have array of three elements sorted.
+Now we have array of **three** elements sorted.
 
 ####Iteration #4
 The next leftmost element of the unsorted part is ![3](images/found-3.png):  
