@@ -32,63 +32,63 @@ We just insert the leftmost element ![Initial Array](images/found-5.png) of the 
 
 ####Iteration #2 
 Next we add next leftmost element ![Initial Array](images/found-2.png) of the unsorted path to the sorted part:  
-![Seond element is inserted](images/second-insert.png)
+![Second element is inserted](images/second-insert.png)
 
 Then we check whether the previous leftmost element from the sorted part goes before this new added element or after. As we know ![Initial Array](images/found-5.png) goes after ![Initial Array](images/found-2.png), so we remove ![Initial Array](images/found-2.png) from the array and store it in a temporary variable:  
-![Initial Array](images/second-delete.png)
+![Second element is moved to temp](images/second-delete.png)
 
 Then we shift ![Initial Array](images/found-5.png) by one position to the right into the new vacant spot:    
-![Initial Array](images/second-shift-one.png)
+![First left element is shifted to the right](images/second-shift-one.png)
 
 As we reach the start of the array, there is no more elements to compare and shift, we push ![Initial Array](images/found-2.png) back to the array:  
-![First element is sorted](images/second-sorted.png)
+![Two elements are sorted](images/second-sorted.png)
 
 Now we have array of two elements sorted.
 
 ####Iteration #3 
 Then we add next leftmost element ![Initial Array](images/found-1.png) of the unsorted part to the sorted part:  
-![Initial Array](images/3th-insert.png)
+![3th element is inserted](images/3th-insert.png)
 
 As we see the previous leftmost element in the sorted part ![Initial Array](images/found-5.png) goes after ![Initial Array](images/found-1.png), so we need to shift elements. First of all we remove ![Initial Array](images/found-1.png) from the array and copy it to a temporal variable:  
-![Initial Array](images/3th-delete.png)
+![3th element is moved to temp](images/3th-delete.png)
 
 Then we shift ![Initial Array](images/found-5.png) to the new vacant spot:  
-![Initial Array](images/3th-shift-one.png)
+![First left element is shifted to the right](images/3th-shift-one.png)
 
 Then we compare next element from the sorted part with our temporal variable. As we see ![Initial Array](images/found-2.png) goes after ![Initial Array](images/found-1.png), so we need one more shift:  
-![Initial Array](images/3th-shift-two.png)
+![Second left element is shifted to the right](images/3th-shift-two.png)
 
 As we reach the start of the array, no elements to shift, so we push ![Initial Array](images/found-1.png) back to the array:  
-![Initial Array](images/3th-sorted.png)
+![Three elements are sorted](images/3th-sorted.png)
 
 Now we have array of three elements sorted.
 
 ####Iteration #4
 The next leftmost element of the unsorted part is ![Initial Array](images/found-3.png):  
-![Initial Array](images/4th-insert.png)
+![4th element is inserted](images/4th-insert.png)
 
 And again we need to shift. As you see the leftmost element of the sorted part ![Initial Array](images/found-5.png) goes after our current element. So once again we remove element from the array and store it in a temporal variable:  
-![Initial Array](images/4th-delete.png)
+![4th element is moved to temp](images/4th-delete.png)
 
 Then shift the previous leftmost element of the sorted part to the new vacant spot:  
-![Initial Array](images/4th-shift-one.png)
+![Four elements are sorted](images/4th-shift-one.png)
 
 But here we need only one shift, the next element in the sorted part ![Initial Array](images/found-2.png) goes before our current element. So here we stop and push ![Initial Array](images/found-3.png) back to the array.
  
 ####Iteration #5
 And the last element of the unsorted part comes:  
-![Initial Array](images/5th-insert.png)
+![5th element is inserted](images/5th-insert.png)
 
 We add it to the sorted part but unfortunately cannot leave there as is. The previous leftmost element of the sorted part ![Initial Array](images/found-5.png) goes after our current element, so we once again need shifts.
 
 We remove our current element from the array and store it in a temporal variable:  
-![Initial Array](images/5th-delete.png)
+![5th element is moved to temp](images/5th-delete.png)
 
 Then we shift ![Initial Array](images/found-5.png) to the new vacant spot:  
-![Initial Array](images/5th-shift-one.png)
+![First left element is shifted to the right](images/5th-shift-one.png)
 
 As you see only one shift is needed as the next element if the sorted part ![Initial Array](images/found-3.png) goes before our current element. So we stop here and push ![Initial Array](images/found-4.png) from the temporal variable back to the array:  
-![Initial Array](images/sorted-array.png) 
+![Sorted Array](images/sorted-array.png) 
 
 And now our array is completely sorted. Let's move to the algorithm implementation.
 
@@ -99,7 +99,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * elements to the right of the position `i` (including element at position `i`) are not yet seen, and so are not yet sorted;
 
 ### Implementation
-As you remember we have already defined two auxiliary routines for elements comparison and swapping. But here we don't really nead swaps that move elements around. Each iteration we possibly will need to shift some elements to the right by some number of positions. For simplification let's define a new routine `shiftRight` for this operation:
+As you remember we have already defined two auxiliary routines for elements comparison and swapping. But here we don't really need swaps that move elements around. Each iteration we possibly will need to shift some elements to the right by some number of positions. For simplification let's define a new routine `shiftRight` for this operation:
 ```javascript
 function shiftRight(array, i) {
     array[i + 1] = array[i];
@@ -126,12 +126,12 @@ function sort(array) {
 }
 ```
 
-As you can see we start from the first element and go till the last element of the array. Each element is temporary saved to a varaible to find the correct spot for it among already sorted elements. During shifts we do not observe elements to the right of the current position, we only shift elements from the left. Thus, we have all our invariants to be true. 
+As you can see we start from the first element and go till the last element of the array. Each element is temporary saved to a variable to find the correct spot for it among already sorted elements. During shifts we do not observe elements to the right of the current position, we only shift elements from the left. Thus, we have all our invariants to be true. 
 
 ### Improvements
 Even it's again a very simple algorithm we can add some improvements to make it even better.
 
-As we mentioned previously, array of one elemet is always sorted. This means that we actually can skip first iteration at all as we won't shift elements here. So we can start out outer loop from the `1` position. 
+As we mentioned previously, array of one element is always sorted. This means that we actually can skip first iteration at all as we won't shift elements here. So we can start out outer loop from the `1` position. 
 
 Here is our final implementation:
 ```javascript
