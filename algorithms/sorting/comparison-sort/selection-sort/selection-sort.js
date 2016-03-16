@@ -44,6 +44,34 @@
     }
     
     /**
+     * Checks whether passed array is sorted.
+     * @param {Array} array to be cheked
+     * @param {int} lo index of the first element to be sorted
+     * @param {int} hi index of the last element to be sorted
+     * @returns {boolean} if true if array is sorted, otherwise - false.
+     */
+    function sorted(array, lo, hi) {
+        var n = array.length, 
+            i;
+    
+        if (lo === undefined) {
+            lo = 0;
+        }
+    
+        if (hi === undefined) {
+            hi = n - 1;
+        }
+        
+        for (i = 1; i <= n; i++) {
+            if (less(array, i, i - 1)) {
+                return false;
+            }
+        }
+    
+        return true;
+    }
+    
+    /**
      * Sorts in-place an array using selection sort algorithm.
      * @param {Array} array original array to be sort
      * @param {int} lo index of the first element to be sorted
@@ -74,12 +102,13 @@
                 swap(array, i, min);
             }
         }
-    
+        
         return array;
     }
     
     var a1 = [5, 2, 1, 3, 4];
     sort(a1);
+    console.log(sorted(a1));
     console.log(a1); // [1, 2, 3, 4, 5]
     
     var a2 = [5, 2, 1, 3, 4];
