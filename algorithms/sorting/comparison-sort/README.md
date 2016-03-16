@@ -1,13 +1,17 @@
 ## Comparison Sort Algorithms
-Our journey with [comparison sort][] algorithms begins. But before moving to detailed algorithm implementation and analysis, let's spend a minute discussing our *rules of the game*.
+Our journey with [comparison sort][] algorithms begins. But before moving to details of algorithm implementation and analysis, let's spend a minute discussing our *rules of the game*.
 
 ### Rules of the Game
-By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. Let's define that by default our task is to sort elements of the array in **ascending order** (means [non-increasing order][]), unless the other order is indicated. It does not really matter of what type array elements are, but for simplification let's assume that it is **integer** values.    
+By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. 
+
+So let's assume that by default our task is always to sort elements of the array in **ascending order** (means [non-increasing order][]), unless the other order is indicated. And from algorithm implementation it does not really matter of what type array elements are, but for simplication let's assume that it is **integer** values.    
 
 ### Cost model
-To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. Truly saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm will do less number of comparisons. 
+To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. 
 
-To calculate the cost of each algorithm, we will count the number of **compares** and **swaps**. For algorithms that don't use *swaps*, we will count **array accesses**. Thus, we will be able to compare all [comparison sort][] algorithms by comparing these metrics.
+Truуly saying such algorithms need to perform a lot of comparisons in order to correctly sort an array. So we can use this operator to calculate the cost of each algorithm - more effective algorithm will do less number of comparisons. 
+
+To calculate the cost of each algorithm, we will count the number of **compares** and **swaps**. For algorithms that don't use *swaps*, we will count **array accesses**. Thus, we will be compare all [comparison sort][] algorithms by comparing these metrics.
 
 ### Basic Operations
 In almost all [sorting algorithms][sorting-algorithm] that we will look at in this tutorial we will use two basic operations:
@@ -15,10 +19,10 @@ In almost all [sorting algorithms][sorting-algorithm] that we will look at in th
 * [compare two elements between each other](#compare-elements-between-each-other);
 * [swap two elements in the array](#swap-elements-in-the-array).
 
-For simplification, let's create for these two operations small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
+For simplication, let's create for these two operations small auxiliary routines that will be used across all our [sorting algorithms][sorting-algorithm] implementations.
 
 #### Compare elements between each other
-Here we will usually check whether the element at first passed index is less than the element at second passed index:
+Here we will check whether the element at first passed index is less than the element at second passed index:
 ```javascript
 function less(array, i, j) {
     return array[i] < array[j];
@@ -28,12 +32,34 @@ function less(array, i, j) {
 #### Swap elements in the array
 Here we will use a temporary variable to swap two elements of the array by specified array indices:
  ```javascript
- function swap(array, i, j) {
+function swap(array, i, j) {
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
 }
  ```
+
+### Invariants
+In computer science, an invariant is a condition that can be relied upon to be true during execution of a program. It is a logical assertion that is held to always be true during a certain phase of execution. We will use invariants during algorithm design, implementation and, finally, to check the result of the sorting. 
+
+First of all for each algorithm we will define some loop invariants that should be always true at the beginning and end of each array element iteration. This will help us verify the algorithm correctness during its implementation and execution.
+
+Finally, as a last step we will always run the following routine to verify that our input array is truely sorted at the end:
+```javascript
+function sorted(array) {
+    var n = array.length, 
+        i = 1;
+  
+    while(i < n) {
+        if(array[i] < array[i - 1]) {
+            return false;
+        }
+        i++;
+    }
+
+    return true;
+}
+```
 
 ### Most Popular Algorithms
 Here is the list of [comparison sort][] algorithms that we will learn in this tutorial. It is also the list of most popular [comparison sort][] algorithms in computer science that every engineer should probably know to be successful:
