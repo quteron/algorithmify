@@ -48,13 +48,12 @@ Finally, as a last step we will always run the following routine to verify that 
 ```javascript
 function sorted(array) {
     var n = array.length, 
-        i = 1;
+        i;
   
-    while(i < n) {
-        if(array[i] < array[i - 1]) {
+    for (i = 1; i < n; i++) {
+        if (less(array, i, i - 1)) {
             return false;
         }
-        i++;
     }
 
     return true;
