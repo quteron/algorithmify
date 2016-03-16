@@ -1,5 +1,5 @@
 ## Insertion Sort
-Today we are going to look at yet another elementary sorting algorithm - [Insertion Sort][]. This is typically the third [sorting algorithm][overview] to study in computer science, after [Bubble Sort][bubble-sort] and [Selection Sort][selection-sort]. It's again an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but at some circumstances can perform better than previously discussed two algorithms. 
+Today we are going to look at yet another elementary sorting algorithm - [Insertion Sort][]. This is typically the third [sorting algorithm][overview] to study in computer science, after [Bubble Sort][bubble-sort] and [Selection Sort][selection-sort]. Everyone who likes play bridge is familiar with it. This algorithm is again an [in-place][] [comparison sort][] algorithm that is not actually efficient for large data sets but at some circumstances can perform better than previously discussed two algorithms.
 
 So let's get started!
 
@@ -14,7 +14,7 @@ Initially the sorted part is empty and the unsorted part is the entire list. The
 Then on the second iteration we again add the next leftmost element (that is the second entry of the array) of the unsorted part to the sorted part. Now as an array of two elements is not always sorted, we need to put this newly added element at the correct position in the sorted part to keep it sorted: 
 
 * if the new element goes after or equal the last element in the sorted part, then we do nothing and move to the next iteration;  
-* if it goes before the last element in the sorted part, then we delete its values (copy it to a temporal variable) and shift the last sorted element into a new vacant spot. We repeat the shift for all elements from the sorted part until reach the one that is less than or equal our memorized value;
+* if it goes before the last element in the sorted part, then we delete its values (copy it to a temporal variable) and shift the last sorted element into the new vacant spot. We repeat the shift for all elements from the sorted part until reach the one that is less than or equal our memorized value;
 * if we reach element in the sorted part that less than or equal memorized value, we push our memorized value on the spot before such element;
 * if we reach the start of the array (so we have shifted all sorted elements to the right), we push our memorized value as new first entry in the sorted part of the array. 
 
@@ -37,7 +37,7 @@ Next we add next leftmost element ![Initial Array](images/found-2.png) of the un
 Then we check whether the previous leftmost element from the sorted part goes before this new added element or after. As we know ![Initial Array](images/found-5.png) goes after ![Initial Array](images/found-2.png), so we remove ![Initial Array](images/found-2.png) from the array and store it in a temporary variable:  
 ![Initial Array](images/second-delete.png)
 
-Then we shift ![Initial Array](images/found-5.png) by one position to the right into a new vacant spot:    
+Then we shift ![Initial Array](images/found-5.png) by one position to the right into the new vacant spot:    
 ![Initial Array](images/second-shift-one.png)
 
 As we reach the start of the array, there is no more elements to compare and shift, we push ![Initial Array](images/found-2.png) back to the array:  
@@ -52,7 +52,7 @@ Then we add next leftmost element ![Initial Array](images/found-1.png) of the un
 As we see the previous leftmost element in the sorted part ![Initial Array](images/found-5.png) goes after ![Initial Array](images/found-1.png), so we need to shift elements. First of all we remove ![Initial Array](images/found-1.png) from the array and copy it to a temporal variable:  
 ![Initial Array](images/3th-delete.png)
 
-Then we shift ![Initial Array](images/found-5.png) to a new vacant spot:  
+Then we shift ![Initial Array](images/found-5.png) to the new vacant spot:  
 ![Initial Array](images/3th-shift-one.png)
 
 Then we compare next element from the sorted part with our temporal variable. As we see ![Initial Array](images/found-2.png) goes after ![Initial Array](images/found-1.png), so we need one more shift:  
@@ -70,7 +70,7 @@ The next leftmost element of the unsorted part is ![Initial Array](images/found-
 And again we need to shift. As you see the leftmost element of the sorted part ![Initial Array](images/found-5.png) goes after our current element. So once again we remove element from the array and store it in a temporal variable:  
 ![Initial Array](images/4th-delete.png)
 
-Then shift the previous leftmost element of the sorted part to a new vacant spot:  
+Then shift the previous leftmost element of the sorted part to the new vacant spot:  
 ![Initial Array](images/4th-shift-one.png)
 
 But here we need only one shift, the next element in the sorted part ![Initial Array](images/found-2.png) goes before our current element. So here we stop and push ![Initial Array](images/found-3.png) back to the array.
@@ -84,7 +84,7 @@ We add it to the sorted part but unfortunately cannot leave there as is. The pre
 We remove our current element from the array and store it in a temporal variable:  
 ![Initial Array](images/5th-delete.png)
 
-Then we shift ![Initial Array](images/found-5.png) to a new vacant spot:  
+Then we shift ![Initial Array](images/found-5.png) to the new vacant spot:  
 ![Initial Array](images/5th-shift-one.png)
 
 As you see only one shift is needed as the next element if the sorted part ![Initial Array](images/found-3.png) goes before our current element. So we stop here and push ![Initial Array](images/found-4.png) from the temporal variable back to the array:  
@@ -126,40 +126,27 @@ function sort(array) {
 }
 ```
 
-As you can see we start at position `0` and go till the last position of the array. For each position we are looking for the next smallest element, observing only elements to the right of the current position. That is done to guard our invariant:
-> all elements to the left of the position `i` are already sorted and fixed, it means that they won't be touched starting from this moment
-
-As all elements to the left of the current position are *frozen*, we cannot observe them for the smallest one. So we temporary assume that next smallest element is at position `i` (current *cursor* position) and start our inner loop from `i+1` position till the end of the array. Each element on the right of the position `i` we compare with current found smallest element at position `min`. If current observing item is less than we found before, we save its position to the variable `min`. It becomes our new smallest item.  
+As you can see we start from the first element and go till the last element of the array. Each element is temporary saved to a varaible to find the correct spot for it among already sorted elements. During shifts we do not observe elements to the right of the current position, we only shift elements from the left. Thus, we have all our invariants to be true. 
 
 ### Improvements
-Even it's a very simple algorithm we can add some improvements to make it even better.
+Even it's again a very simple algorithm we can add some improvements to make it even better.
 
-First of all it may happen that next smallest element that we are looking for is already in place, at current position `i`. In this case we are swapping it with itself that sounds silly. Let's add a guard to avoid such redundant exchange:
-```javascript
-if (i != min) {
-    swap(array, i, min);
-}
- ```
- 
-Next, we can even reduce our outer loop by one iteration. As you can see outer loop iterates array till its last element, including this *last element*. But for the last element we don't have any elements to swap with. As it's the last element, there is no element to the right of it to observe, and all elements to the left are already sorted and fixed. So we really have nothing to do there. That is why we can change exit condition for the outer loop by skipping last iteration at all.
+As we mentioned previously, array of one elemet is always sorted. This means that we actually can skip first iteration at all as we won't shift elements here. So we can start out outer loop from the `1` position. 
 
 Here is our final implementation:
 ```javascript
 function sort(array) {
     var n = array.length,
-		i, j, min;
+        i, j, temp;
 
-    for (i = 0; i < n - 1; i++) {
-        min = i;
-        for (j = i + 1; j < n; j++) {
-            if (less(array, j, min)) {
-                min = j;
-            }
+    for (i = 1; i < n; i++) {
+        temp = array[i];
+        
+        for(j = i - 1; j >= 0 && less(temp, array[j]); j--) {
+            shiftRight(array, j);
         }
-
-        if (i != min) {
-            swap(array, i, min);
-        }
+        
+        array[j + 1] = temp;
     }
 
     return array;
@@ -170,19 +157,18 @@ function sort(array) {
 Let's think what we can learn from this algorithm.
 
 * **It's in-place algorithm**  
-As you can see we don't use any additional memory except one variable to store the position of the smallest element.
+As you can see we don't use any additional memory except one variable to store the current processed element.
 
-* **It's not stable**  
-As elements of the array move round because of swaps, it breaks elements relative order. So if array contains some equal values, there is a big chance that their relative order will be broken at the end.
+* **It's stable**  
+All elements of the array are only shifted to the right if they go before current processed element, so we don't break elements relative order. It's the first *stable* algorithm in our toolbox.
 
-* **Insensitive to the input array state**  
-As you can see we iterate through the items of the array looking for the smallest item independently of the initial array state. Even if array is already sorted, we will still look through all elements to the right starting from the first position. It sounds a little bit odd, apparently, we will waste our time. But it's how this algorithm is designed. So this algorithm is **non-adaptive**.
- 
-* **Minimal number of swaps**  
-As you can see we swap array items only in the outer array. So there can be not more than `n-1` exchanges for the array of `n` elements. That means that we have **linear number of swaps**. It's really a good value. No other sorting algorithms can boast of such good performance. In situations in which moving elements is more expensive than comparing then, this algorithm performs better than others.
+* **Sensitive to the input array state**  
+This is example of **adaptive** algorithm. As you can see on each iteration we compare our current element with elements on the left starting from the leftmost. And we start shifting if only the leftmost element goes after our current element. This means that if our array is already sorted we will never need shift elements and will complete execution much faster. 
+
+It's very easy to prove that for already sorted array we will have `0` swaps and `n-1` compares at most. It means that in the best case we will have very fast execution in linear time.
 
 * **Has O(n^2) complexity**  
-As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the algorithm is non-adaptive to the initial state of the array. AS we already learned even if array is already sorted, the algorithm will still performs the sam number of comparisons.
+But in average case this algorithm have **O(n^2)** complexity. For randomly ordered array we can expect that for each element we would need to shift the half of elements on the left of the current position.
 
 You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
