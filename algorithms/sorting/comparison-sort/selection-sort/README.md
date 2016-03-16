@@ -91,7 +91,7 @@ function sort(array) {
     for (i = 0; i < n; i++) {
         min = i;
         for (j = i + 1; j < n; j++) {
-            if (less(array, j, min)) {
+            if (less(array[j], array[min])) {
                 min = j;
             }
         }
@@ -129,7 +129,7 @@ function sort(array) {
     for (i = 0; i < n - 1; i++) {
         min = i;
         for (j = i + 1; j < n; j++) {
-            if (less(array, j, min)) {
+            if (less(array[j], array[min])) {
                 min = j;
             }
         }
