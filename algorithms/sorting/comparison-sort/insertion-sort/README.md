@@ -165,10 +165,8 @@ All elements of the array are only shifted to the right if they go before curren
 * **Sensitive to the input array state**  
 This is example of **adaptive** algorithm. As you can see on each iteration we compare our current element with elements on the left starting from the leftmost. And we start shifting if only the leftmost element goes after our current element. This means that if our array is already sorted we will never need shift elements and will complete execution much faster. 
 
-It's very easy to prove that for already sorted array we will have `0` swaps and `n-1` compares at most. It means that in the best case we will have very fast execution in linear time.
-
 * **Has O(n^2) complexity**  
-But in average case this algorithm have **O(n^2)** complexity. For randomly ordered array we can expect that for each element we would need to shift the half of elements on the left of the current position.
+In average case this algorithm have **O(n^2)** complexity. For randomly ordered array we can expect that for each element we would need to shift the half of elements on the left of the current position. But it's very easy to prove that for already sorted array we will have `0` swaps and `n-1` compares at most. It means that in the best case we will have **O(n)** complexity.
 
 You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
