@@ -34,13 +34,13 @@
     
     /**
      * Checks whether first passed element is less than second passed element.
-     * @param {Array} array original
-     * @param {int} i index of the first element
-     * @param {int} j index of the second element
+     * @param {Array} array original array
+     * @param {int} a first element to compare
+     * @param {int} b second element to compare
      * @returns {boolean} if true if first element is less than second, otherwise - false.
      */
-    function less(array, i, j) {
-        return array[i] < array[j];
+    function less(a, b) {
+        return a < b;
     }
     
     /**
@@ -63,7 +63,7 @@
         }
         
         for (i = 1; i <= n; i++) {
-            if (less(array, i, i - 1)) {
+            if (less(array[i], array[i - 1])) {
                 return false;
             }
         }
@@ -93,7 +93,7 @@
         for (i = lo; i < hi; i++) {
             min = i;
             for (j = i + 1; j <= hi; j++) {
-                if (less(array, j, min)) {
+                if (less(array[j], array[min])) {
                     min = j;
                 }
             }
