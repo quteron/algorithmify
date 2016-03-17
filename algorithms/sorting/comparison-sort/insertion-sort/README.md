@@ -24,71 +24,71 @@ So on each iteration we **insert** next leftmost element from the unsorted part 
 
 ### Example
 Let's look at simple example. Consider we have the following array:  
-![Initial Array](../images/initial-array.png)
+![Initial Array](../_images/initial-array.png)
 
 ####Iteration #1  
-We just insert the leftmost element ![5](images/5.png) of the unsorted part to the sorted part and move to the next iteration:  
-![First element is sorted](images/1th-sorted.png)
+We just insert the leftmost element `5` of the unsorted part to the sorted part and move to the next iteration:  
+![First element is sorted](_images/1th-sorted.png)
 
 ####Iteration #2 
-Next we add next leftmost element ![2](images/2.png) of the unsorted path to the sorted part:  
-![Second element is inserted](images/2th-inserted.png)
+Next we add next leftmost element `2` of the unsorted path to the sorted part:  
+![Second element is inserted](_images/2th-inserted.png)
 
-Then we check whether the previous leftmost element from the sorted part goes before this new added element or after. As we know ![5](images/5.png) goes after ![2](images/2.png), so we remove ![2](images/2.png) from the array and store it in a temporary variable:  
-![Second element is moved to temp](images/2th-deleted.png)
+Then we check whether the previous leftmost element from the sorted part goes before this new added element or after. As we know `5` goes after `2`, so we remove `2` from the array and store it in a temporary variable:  
+![Second element is moved to temp](_images/2th-deleted.png)
 
-Then we shift ![5](images/5.png) by one position to the right into the new vacant spot:    
-![First left element is shifted to the right](images/2th-1th-shift.png)
+Then we shift `5` by one position to the right into the new vacant spot:    
+![First left element is shifted to the right](_images/2th-1th-shift.png)
 
-As we reach the start of the array, there is no more elements to compare and shift, we push ![2](images/2.png) back to the array:  
-![Two elements are sorted](images/2th-sorted.png)
+As we reach the start of the array, there is no more elements to compare and shift, we push `2` back to the array:  
+![Two elements are sorted](_images/2th-sorted.png)
 
 Now we have array of **two** elements sorted.
 
 ####Iteration #3 
 Then we add next leftmost element `1` of the unsorted part to the sorted part:  
-![3th element is inserted](images/3th-inserted.png)
+![3th element is inserted](_images/3th-inserted.png)
 
 As we see the previous leftmost element in the sorted part `5` goes after `1`, so we need to shift elements. First of all we remove `1` from the array and copy it to a temporal variable:  
-![3th element is moved to temp](images/3th-deleted.png)
+![3th element is moved to temp](_images/3th-deleted.png)
 
 Then we shift `5` to the new vacant spot:  
-![First left element is shifted to the right](images/3th-1th-shift.png)
+![First left element is shifted to the right](_images/3th-1th-shift.png)
 
-Then we compare next element from the sorted part with our temporal variable. As we see `2` goes after ![1](images/1.png), so we need one more shift:  
-![Second left element is shifted to the right](images/3th-2th-shift.png)
+Then we compare next element from the sorted part with our temporal variable. As we see `2` goes after `1`, so we need one more shift:  
+![Second left element is shifted to the right](_images/3th-2th-shift.png)
 
 As we reach the start of the array, no elements to shift, so we push `1` back to the array:  
-![Three elements are sorted](images/3th-sorted.png)
+![Three elements are sorted](_images/3th-sorted.png)
 
 Now we have array of **three** elements sorted.
 
 ####Iteration #4
 The next leftmost element of the unsorted part is `3`:  
-![4th element is inserted](images/4th-inserted.png)
+![4th element is inserted](_images/4th-inserted.png)
 
 And again we need to shift. As you see the leftmost element of the sorted part `5` goes after our current element. So once again we remove element from the array and store it in a temporal variable:  
-![4th element is moved to temp](images/4th-deleted.png)
+![4th element is moved to temp](_images/4th-deleted.png)
 
 Then shift the previous leftmost element of the sorted part to the new vacant spot:  
-![Four elements are sorted](images/4th-1th-shift.png)
+![Four elements are sorted](_images/4th-1th-shift.png)
 
 But here we need only one shift, the next element in the sorted part `2` goes before our current element. So here we stop and push `3` back to the array.
  
 ####Iteration #5
 And the last element of the unsorted part comes:  
-![5th element is inserted](images/5th-inserted.png)
+![5th element is inserted](_images/5th-inserted.png)
 
 We add it to the sorted part but unfortunately cannot leave there as is. The previous leftmost element of the sorted part `5` goes after our current element, so we once again need shifts.
 
 We remove our current element from the array and store it in a temporal variable:  
-![5th element is moved to temp](images/5th-deleted.png)
+![5th element is moved to temp](_images/5th-deleted.png)
 
-Then we shift ![5](images/5.png) to the new vacant spot:  
-![First left element is shifted to the right](images/5th-1th-shift.png)
+Then we shift `5` to the new vacant spot:  
+![First left element is shifted to the right](_images/5th-1th-shift.png)
 
 As you see only one shift is needed as the next element if the sorted part `3` goes before our current element. So we stop here and push `4` from the temporal variable back to the array:  
-![Sorted Array](../images/sorted-array.png) 
+![Sorted Array](../_images/sorted-array.png) 
 
 And now our array is completely sorted. Let's move to the algorithm implementation.
 
