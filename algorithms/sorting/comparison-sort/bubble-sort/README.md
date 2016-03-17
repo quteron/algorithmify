@@ -4,7 +4,7 @@ Today we are going to look at one of the elementary sorting algorithm - [Bubble 
 So let's get started!
 
 ### Rules of the Game
-The basic idea is to compare each pair of adjacent elements and swap them if the element on left goes after the element on the right. At the end of each pass through all elements the *largest* element **bubbles** to the end of the array. Hence, the name of the algorithm - [Bubble Sort][]. We continue passing through elements from the first till the last until the moment when there is no swaps during the pass. It is a sign for us that all elements are completely sorted.
+The basic idea is to compare each pair of adjacent elements and swap them if the element on left goes after the element on the right. At the end of each pass through all elements the *largest* element **bubbles** to the end of the array. Hence, the name of the algorithm - [Bubble Sort][]. We continue passing through elements from the first till the last until the moment when there are no swaps during the current pass. It is a sign for us that all elements are completely sorted.
 
 To better understand the algorithm, let's look at simple example.
 
@@ -54,10 +54,12 @@ Then we compare next pair - `2` and `3`:
 
 `2` goes before `3`, so no swaps here.
 
-The last pair of adjacent elements in thi pass - `3` and `4`:  
+The last pair of adjacent elements in this pass - `3` and `4`:  
 ![2th pass - compare 3th pair](_images/2th-iteration-3th-pair.png)
 
-`3` goes before `4`, everything is good, no swaps here too. Thus we have **two** largest elements **bubbled** to the end of the array:  
+`3` goes before `4`, everything is good, no swaps here too. 
+
+Thus we have **two** largest elements **bubbled** to the end of the array:  
 ![2th pass is completed](_images/2th-iteration-completed.png)
 
 ####Iteration #3 
@@ -69,7 +71,7 @@ As we know `1` goes before `2`, no swaps are needed here.
 Then move to the next pair of the elements - `2` and `3`:  
 ![3th pass - compare 2th pair](_images/3th-iteration-2th-pair.png)
 
-Once again everything is good, no swaps here. AS it is the last pair, the iteration is completed. Thus, we have **three** elements bubbled to the end of the array:  
+Once again everything is good, no swaps here. As it is the last pair, the iteration is completed. Thus, we have **three** elements bubbled to the end of the array:  
 ![3th pass is completed](_images/3th-iteration-completed.png)
 
 During the last pass as you see we have know swaps, it means that we can stop our iterations as our array is completely sorted:  
@@ -79,13 +81,13 @@ During the last pass as you see we have know swaps, it means that we can stop ou
 Based on our simple example let's try to define invariants that we need to check during the algorithm implementation for its correct behaviour. As you can see for each pass the following should be true:
 
 * at the end of each pass the next largest element is bubbled to the end of the array;
-* as soon element is bubbled, it becomes frozen.
+* after element is bubbled, it becomes frozen, we should not touch it anymore.
 
 ### Implementation
 As you remember we have already defined two auxiliary routines for elements [comparison][less-routine] and [swapping][swap-routine]. To complete implementation of the entire algorithm, we need to have the following:
 
 * inner loop to compare each pair of adjacent elements and swap them if it's needed;
-* outer loop to iterate through array elements unless there are no nore swaps.
+* outer loop to iterate through array elements unless there are no more swaps.
 
 Now let's implement it:
 ```javascript
@@ -107,10 +109,49 @@ function sort(array) {
 }
 ```
 
-
 ### Improvements
+Despite the fact that it is the easier sorting algorithm and very simple implementation, we still can add one improvement here. As you remember in our example on each pass we stop as soon as reach previously bubbled largest element. But in our implementation we have inner loop that iterates all elements in the array, even already sorted ones at the end of the array.
+
+To fix this we need to reduce number of iterations for inner loop to skip these bubbled elements. And to accomplish this we need to count how many elements are already bubbled and update inner loop condition. So we will need to add one more variable to track the number of bubbled elements.
+
+Here is our final version: 
+```javascript
+function sort(array) {
+    var n = array.length,
+        k = 0,
+        i, swapped;
+
+    do {
+        swapped = false;
+        for (i = 0; i < n - k - 1; i++) {
+            if (less(array[i + 1], array[i])) {
+                swap(array, i + 1, i);
+                swapped = true;
+            }
+        }
+        k++;
+    } while (swapped);
+
+    return array;
+}
+```
 
 ### Analysis
+Let's list what we can learn from this algorithm:
+
+* **It's in-place algorithm**  
+As you can see we don't use any additional memory except two variables - one stores the current processed element and the other tracks the number of already bibbled elements.
+
+* **It's stable**  
+AS we swap only adjacent elements when they breaks the order, we cannit break elements relative order. So it's the first *stable* algorithm in our toolbox.
+
+* **Sensitive to the input array state**  
+This is example of **adaptive** algorithm. As you can see on each iteration we compare each pair of adjacent elements and swap them only if order is broken. This means that if our array is already sorted we will never need to swap adjacent elements and will complete execution in one pass. 
+
+* **Has O(n^2) complexity**  
+In average case this algorithm have **O(n^2)** complexity. For randomly ordered array we can expect that half of adjacent elements pairs would need to be swapped. But it's very easy to prove that for already sorted array we will have `0` swaps and `n/2 + 1` compares at most. It means that in the best case we will have **O(n)** complexity.
+
+You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
 ### Summary 
 That is it for the [Bubble Sort][]. As you can see it's not much efficient. Next time we will look at [Selection Sort Algorithm][next].
