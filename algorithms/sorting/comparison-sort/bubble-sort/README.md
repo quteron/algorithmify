@@ -154,7 +154,7 @@ As you can see the first pass requires `n-1` comparisons, the second - `n-2` com
 As for number of swaps - in the worst case when the input array is backward ordered we will have the same number as number of comparisons - `n*(n-1)/2`. But if the input array is already sorted we will have `0` swaps that is great.
 
 * **Where is it useful?**  
-Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most unefficient algorithm, it still can be very useful to detect a very small error in almost-sorted array and fix it with just linear complexity - **O(n)**.
+Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most inefficient algorithm, it still can be very useful to detect a very small error in almost-sorted array and fix it with just linear complexity - **O(n)**.
 
 You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
