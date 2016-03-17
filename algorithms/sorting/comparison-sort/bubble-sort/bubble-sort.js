@@ -78,14 +78,15 @@
      * @return {Array} sorted array
      */
     function sort(array, lo, hi) {
-        var i, swapped;
+        var n = array.length,
+            i, swapped;
 
         if (lo === undefined) {
             lo = 0;
         }
 
         if (hi === undefined) {
-            hi = array.length - 1;
+            hi = n - 1;
         }
 
         do {
