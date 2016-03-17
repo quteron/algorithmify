@@ -160,7 +160,10 @@ As you can see we iterate through the items of the array looking for the smalles
 As you can see we swap array items only in the outer array. So there can be not more than `n-1` exchanges for the array of `n` elements. That means that we have **linear number of swaps**. It's really a good value. No other sorting algorithms can boast of such good performance. In situations in which moving elements is more expensive than comparing then, this algorithm performs better than others.
 
 * **Has O(n^2) complexity**  
-As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the algorithm is non-adaptive to the initial state of the array. AS we already learned even if array is already sorted, the algorithm will still performs the same number of comparisons.
+As you can see the first swap requires `n-1` comparisons, the second - `n-2`, the third - `n-3`, and so on. This is the series `(n-1) + (n-2) + (n-3) + ... + 1`, which simplifies to `n*(n-1)/2`. This means that this algorithm is `O(n^2)`. This is true for the best, average and worst case because the algorithm is non-adaptive to the initial state of the array. As we already learned even if array is already sorted, the algorithm will still performs the same number of comparisons.
+
+* **Where is it useful?**  
+As it was already mentioned it is the only sorting algorithm that has minimal number of swaps. So it will be especially useful when memory write is a costly operation and we wish to move elements very rarely.
 
 You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
 
