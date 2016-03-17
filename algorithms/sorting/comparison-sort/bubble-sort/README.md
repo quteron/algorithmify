@@ -140,10 +140,10 @@ function sort(array) {
 Let's list what we can learn from this algorithm:
 
 * **It's in-place algorithm**  
-As you can see we don't use any additional memory except two variables - one stores the current processed element and the other tracks the number of already bibbled elements.
+As you can see we don't use any additional memory except two variables - one stores the current processed element and the other tracks the number of already bubbled elements.
 
 * **It's stable**  
-AS we swap only adjacent elements when they breaks the order, we cannit break elements relative order. So it's the first *stable* algorithm in our toolbox.
+AS we swap only adjacent elements when they breaks the order, we cannot break elements relative order. So it's the first *stable* algorithm in our toolbox.
 
 * **Sensitive to the input array state**  
 This is example of **adaptive** algorithm. As you can see on each iteration we compare each pair of adjacent elements and swap them only if order is broken. This means that if our array is already sorted we will never need to swap adjacent elements and will complete execution in one pass. 
