@@ -99,7 +99,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * elements to the right of the position `i` (including element at position `i`) are not yet seen, and so are not yet sorted;
 
 ### Implementation
-As you remember we have already defined two auxiliary routines for elements comparison and swapping. But here we don't really need swaps that move elements around. Each iteration we possibly will need to shift some elements to the right by some number of positions. For simplification let's define a new routine `shiftRight` for this operation:
+As you remember we have already defined two auxiliary routines for elements [comparison][less-routine] and [swapping][swap-routine]. But here we don't really need swaps that move elements around. Each iteration we possibly will need to shift some elements to the right by some number of positions. For simplification let's define a new routine `shiftRight` for this operation:
 ```javascript
 function shiftRight(array, i) {
     array[i + 1] = array[i];
@@ -174,9 +174,11 @@ You will see later that other [sorting algorithms][overview] have more efficient
 That is it for the [Insertion Sort][]. As you can see it's not much efficient. Next time we will look at [Merge Sort Algorithm][next].
 
 [Insertion Sort]: https://en.wikipedia.org/wiki/Insertion_sort "Insertion Sort - Wikipedia"
-[overview]: ../../README.md
-[in-place]: ../../README.md#in-place-and-not-in-place
-[comparison sort]: ../README.md
+[overview]: ../../README.md "Sorting Algorithms - Overview"
+[in-place]: ../../README.md#in-place-and-not-in-place "In-Place and Not In-Place Algorithms"
+[comparison sort]: ../README.md "Comparison Sort Algorithms - Overview"
+[less-routine]: ../README.md#compare-elements-between-each-other "Compare elements between each other"
+[swap-routine]: ../README.md#swap-elements-in-the-array "Swap elements in the array"
 [next]: ../merge-sort/README.md "Merge Sort Algorithm"
 [bubble-sort]: ../bubble-sort/README.md "Bubble Sort Algorithm"
 [selection-sort]: ../selection-sort/README.md "Selection Sort Algorithm"

@@ -78,7 +78,7 @@ Based on the discussed example let's define invariants that we need to check dur
 * except element at position `i-1` there is no other elements to the left of the position `i` that can be equal any elements to the right of the position `i` (including element at position `i`).
 
 ### Implementation
-As you remember we have already defined two auxiliary routines for elements comparison and swapping. To complete implementation of the entire algorithm, we need to have the following:
+As you remember we have already defined two auxiliary routines for elements [comparison][less-routine] and [swapping][swap-routine]. To complete implementation of the entire algorithm, we need to have the following:
 
 * inner loop to find next smallest item in the array;
 * outer loop to swap found smallest item with the current entry.
@@ -168,7 +168,9 @@ You will see later that other [sorting algorithms][sorting-algorithm] have more 
 That is it for the [Selection Sort][]. As you can see it's not much efficient. Next time we will look at [Insertion Sort Algorithm][next].
 
 [Selection Sort]: https://en.wikipedia.org/wiki/Selection_sort "Selection Sort - Wikipedia"
-[sorting-algorithm]: ../../README.md
-[in-place]: ../../README.md#in-place-and-not-in-place
-[comparison sort]: ../README.md
+[sorting-algorithm]: ../../README.md "Sorting Algorithms - Overview"
+[in-place]: ../../README.md#in-place-and-not-in-place "In-Place and Not In-Place Algorithms"
+[comparison sort]: ../README.md "Comparison Sort Algorithms - Overview"
+[less-routine]: ../README.md#compare-elements-between-each-other "Compare elements between each other"
+[swap-routine]: ../README.md#swap-elements-in-the-array "Swap elements in the array"
 [next]: ../insertion-sort/README.md "Insertion Sort Algorithm"
