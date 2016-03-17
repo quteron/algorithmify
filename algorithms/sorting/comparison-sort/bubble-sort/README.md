@@ -149,7 +149,12 @@ AS we swap only adjacent elements when they breaks the order, we cannot break el
 This is example of **adaptive** algorithm. As you can see on each iteration we compare each pair of adjacent elements and swap them only if order is broken. This means that if our array is already sorted we will never need to swap adjacent elements and will complete execution in one pass. 
 
 * **Has O(n^2) complexity**  
-In average case this algorithm have **O(n^2)** complexity. For randomly ordered array we can expect that half of adjacent elements pairs would need to be swapped. But it's very easy to prove that for already sorted array we will have `0` swaps and `n/2 + 1` compares at most. It means that in the best case we will have **O(n)** complexity.
+As you can see the first pass requires `n-1` comparisons, the second - `n-2` comparisons, and so on. This series `(n-1) + (n-2) + (n-3) + ... + 1` comparisons can by simplified to `n*(n-1)/2` that gives us `O(n^2)` complexity. 
+
+As for number of swaps - in the worst case when the input array is backward ordered we will have the same number as number of comparisons - `n*(n-1)/2`. But if the input array is already sorted we will have `0` swaps that is great.
+
+* **Where is it useful?**  
+Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most unefficient algorithm, it still can be very useful to detect a very small error in almost-sorted array and fix it with just linear complexity - **O(n)**.
 
 You will see later that other [sorting algorithms][overview] have more efficient times than this one.
 
