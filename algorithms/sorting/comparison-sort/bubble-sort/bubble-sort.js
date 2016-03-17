@@ -79,6 +79,7 @@
      */
     function sort(array, lo, hi) {
         var n = array.length,
+            k = 0,
             i, swapped;
 
         if (lo === undefined) {
@@ -91,12 +92,13 @@
 
         do {
             swapped = false;
-            for (i = lo; i < hi; i++) {
+            for (i = lo; i < hi - k; i++) {
                 if (less(array[i + 1], array[i])) {
                     swap(array, i + 1, i);
                     swapped = true;
                 }
             }
+            k++;
         } while (swapped);
 
         return array;
