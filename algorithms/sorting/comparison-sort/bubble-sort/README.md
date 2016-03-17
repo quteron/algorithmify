@@ -82,6 +82,31 @@ Based on our simple example let's try to define invariants that we need to check
 * as soon element is bubbled, it becomes frozen.
 
 ### Implementation
+As you remember we have already defined two auxiliary routines for elements [comparison][less-routine] and [swapping][swap-routine]. To complete implementation of the entire algorithm, we need to have the following:
+
+* inner loop to compare each pair of adjacent elements and swap them if it's needed;
+* outer loop to iterate through array elements unless there are no nore swaps.
+
+Now let's implement it:
+```javascript
+function sort(array) {
+    var n = array.length,
+        i, swapped;
+
+    do {
+        swapped = false;
+        for (i = 0; i < n - 1; i++) {
+            if (less(array[i + 1], array[i])) {
+                swap(array, i + 1, i);
+                swapped = true;
+            }
+        }
+    } while (swapped);
+
+    return array;
+}
+```
+
 
 ### Improvements
 
@@ -91,7 +116,9 @@ Based on our simple example let's try to define invariants that we need to check
 That is it for the [Bubble Sort][]. As you can see it's not much efficient. Next time we will look at [Selection Sort Algorithm][next].
 
 [Bubble Sort]: https://en.wikipedia.org/wiki/Bubble_sort "Bubble Sort - Wikipedia"
-[sorting-algorithm]: ../../README.md
-[in-place]: ../../README.md#in-place-and-not-in-place
-[comparison sort]: ../README.md
+[sorting-algorithm]: ../../README.md "Sorting Algorithms - Overview"
+[in-place]: ../../README.md#in-place-and-not-in-place "In-Place and Not In-Place Algorithms"
+[comparison sort]: ../README.md "Comparison Sort Algorithms - Overview"
+[less-routine]: ../README.md#compare-elements-between-each-other "Compare elements between each other"
+[swap-routine]: ../README.md#swap-elements-in-the-array "Swap elements in the array"
 [next]: ../selection-sort/README.md "Insertion Sort Algorithm"
