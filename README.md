@@ -9,7 +9,7 @@ Licensed under the [MIT license][].
 
 ## Table of Content
 
-* [Sorting](sorting/README.md)
+* [Sorting](algorithms/sorting/README.md)
 
 ---
 
