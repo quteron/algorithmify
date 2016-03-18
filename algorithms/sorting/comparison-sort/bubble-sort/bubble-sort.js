@@ -36,7 +36,7 @@
      * Checks whether first passed element is less than second passed element.
      * @param {int} a first element to compare
      * @param {int} b second element to compare
-     * @returns {boolean} if true if first element is less than second, otherwise - false.
+     * @return {boolean} true if first element is less than second, otherwise - false.
      */
     function less(a, b) {
         return a < b;
@@ -47,7 +47,7 @@
      * @param {Array} array to be checked
      * @param {int} lo index of the first element to be sorted
      * @param {int} hi index of the last element to be sorted
-     * @returns {boolean} if true if array is sorted, otherwise - false.
+     * @return {boolean} true if array is sorted, otherwise - false.
      */
     function sorted(array, lo, hi) {
         var n = array.length,
