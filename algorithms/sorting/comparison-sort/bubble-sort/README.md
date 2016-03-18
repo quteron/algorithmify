@@ -4,7 +4,7 @@ Today we are going to look at one of the elementary sorting algorithm - [Bubble 
 So let's get started!
 
 ### Rules of the Game
-The basic idea is to compare each pair of adjacent elements and swap them if the element on left goes after the element on the right. At the end of each pass through all elements the *largest* element **bubbles** to the end of the array. Hence, the name of the algorithm - [Bubble Sort][]. We continue passing through elements from the first till the last until the moment when there are no swaps during the current pass. It is a sign for us that all elements are completely sorted.
+The basic idea is to compare each pair of adjacent elements and swap them if the element on left should go after the element on the right. At the end of each pass through all elements the *largest* element **bubbles** to the end of the array. Hence, the name of the algorithm - [Bubble Sort][]. We continue passing through elements from the first till the last until the moment when there are no swaps during the current pass. It is a sign for us that all elements are completely sorted.
 
 To better understand the algorithm, let's look at simple example.
 
@@ -137,13 +137,13 @@ function sort(array) {
 ```
 
 ### Analysis
-Let's list what we can learn from this algorithm:
+Let's list what we can learn from this algorithm.
 
 * **It's in-place algorithm**  
 As you can see we don't use any additional memory except two variables - one stores the current processed element and the other tracks the number of already bubbled elements.
 
 * **It's stable**  
-AS we swap only adjacent elements when they breaks the order, we cannot break elements relative order. So it's the first *stable* algorithm in our toolbox.
+As we swap only adjacent elements when they breaks the order, we cannot break elements relative order. So it's the first *stable* algorithm in our toolbox.
 
 * **Sensitive to the input array state**  
 This is example of **adaptive** algorithm. As you can see on each iteration we compare each pair of adjacent elements and swap them only if order is broken. This means that if our array is already sorted we will never need to swap adjacent elements and will complete execution in one pass. 
@@ -154,7 +154,7 @@ As you can see the first pass requires `n-1` comparisons, the second - `n-2` com
 * **Where is it useful?**  
 Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most inefficient algorithm, it still can be very useful to detect a very small error in almost-sorted array and fix it with just linear complexity - **O(n)**.
 
-You will see later that other [sorting algorithms][overview] have more efficient times than this one.
+You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
 
 ### Summary 
 That is it for the [Bubble Sort][]. As you can see it's not much efficient. Next time we will look at [Selection Sort Algorithm][next].
