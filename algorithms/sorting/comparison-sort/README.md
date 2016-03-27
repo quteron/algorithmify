@@ -4,7 +4,7 @@ Our journey with [comparison sort][] algorithms begins. But before moving to det
 ### Rules of the Game
 By this moment we have learned that the objective of [sorting][] is to rearrange items in some order, and there are two major ways how items can be rearranged - *ascending* and *descending*. 
 
-So let's assume that by default our task is always to sort elements of the array in **ascending order** (means [non-decreasing order][]), unless the other order is indicated. And from algorithm implementation it does not really matter of what type array elements are, but for simplification let's assume that it is **integer** values.    
+So let's assume that by default our task is always to sort elements of the array in **ascending order** (means [non-decreasing order][]), unless the other order is indicated. And from algorithm implementation, it does not really matter what type array elements are, but for simplification let's assume that it is **integer** values.    
 
 ### Cost model
 To compare different [sorting algorithms][sorting-algorithm] between each other we obviously need some techniques to measure their performance. By this moment we have learned that [comparison sort][] algorithms use a *comparison operator* to accomplish the task. 
@@ -42,9 +42,9 @@ function swap(array, i, j) {
 ### Invariants
 In computer science, an invariant is a condition that can be relied upon to be true during execution of a program. It is a logical assertion that is held to always be true during a certain phase of execution. We will use invariants during algorithm design, implementation and, finally, to check the result of the sorting. 
 
-First of all for each algorithm we will define some loop invariants that should be always true at the beginning and end of each array element iteration. This will help us verify the algorithm correctness during its implementation and execution.
+First of all, for each algorithm, we will define some loop invariants that should be always true at the beginning and end of each array element iteration. This will help us verify the algorithm correctness during its implementation and execution.
 
-Finally, as a last step we will always run the following routine to verify that our input array is truly sorted at the end:
+Finally, as the last step we will always run the following routine to verify that our input array is truly sorted at the end:
 ```javascript
 function sorted(array) {
     var n = array.length, 
@@ -64,7 +64,7 @@ function sorted(array) {
 Here is the list of [comparison sort][] algorithms that we will learn in this tutorial. It is also the list of most popular [comparison sort][] algorithms in computer science that every engineer should probably know to be successful:
 
  * [Bubble Sort][]  
- Exchange two adjacent elements if they are out of order, repeat until array is sorted.
+ Exchange two adjacent elements if they are out of order, repeat until the array is sorted.
  * [Selection sort][]  
  Select next smallest element in the array and swap it with the current value, repeat for all elements in the array.
  * [Insertion sort][]  
