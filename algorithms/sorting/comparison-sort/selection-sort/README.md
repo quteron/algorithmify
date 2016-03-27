@@ -38,10 +38,10 @@ Thus, the sorted part contains one element and the boundary of the unsorted part
 
 ####Iteration #2 
 The next *smallest element* that we find in the unsorted part is `2`:  
-![Find next smallest item](_images/1th-smallest.png)
+![Find next smallest item](_images/2th-smallest.png)
 
 And as it stays at the correct position, we actually do nothing, only move by one element the boundary of the unsorted part:  
-![Second element is sorted](_images/1th-sorted.png)
+![Second element is sorted](_images/2th-sorted.png)
 
 ####Iteration #3 
 The next *smallest element* that we find in the unsorted part is `3`:  
