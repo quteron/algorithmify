@@ -143,16 +143,16 @@ Let's list what we can learn from this algorithm.
 As you can see we don't use any additional memory except two variables - one stores the currently processed element and the other tracks the number of already bubbled elements.
 
 * **It's stable**  
-As we swap only adjacent elements when they break the order, we cannot break elements relative order. So it's the first *stable* algorithm in our toolbox.
+As we swap only adjacent elements when they break the order, we cannot break elements relative order. So it's the first *stable* algorithm in our toolbox.k
 
 * **Sensitive to the input array state**  
 This is an example of a **adaptive** algorithm. As you can see on each iteration we compare each pair of adjacent elements and swap them only if the order is broken. This means that if our array is already sorted we will never need to swap adjacent elements and will complete execution in one pass. 
 
 * **Has O(n^2) complexity**  
-As you can see the first pass requires `n-1` comparisons, the second - `n-2` comparisons, and so on. This series `(n-1) + (n-2) + (n-3) + ... + 1` comparisons can by simplified to `n*(n-1)/2` that gives us `O(n^2)` complexity. As for a number of swaps - in the worst case when the input array is backward ordered we will have the same number as the number of comparisons - `n*(n-1)/2`. But if the input array is already sorted we will have `0` swaps that is great.
+As you can see the first pass requires `n-1` comparisons, the second - `n-2` comparisons, and so on. This series `(n-1) + (n-2) + (n-3) + ... + 1` of comparisons can be simplified to `n*(n-1)/2` that gives us `O(n^2)` complexity. As for a number of swaps - in the worst case when the input array is backward ordered we will have the same number as the number of comparisons - `n*(n-1)/2`. But if the input array is already sorted we will have `0` swaps that is great.
 
 * **Where is it useful?**  
-Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most inefficient algorithm, it still can be very useful to detect a very small error in an almost-sorted array and fix it with just linear complexity - **O(n)**.
+Due to the simplicity, [Bubble Sort][] is often used to introduce the concept of an algorithm analysis and a sorting algorithm in particular. Even it's the most inefficient algorithm, it still can be very useful in detecting a very small error in an almost-sorted array and fixing it with just linear complexity - `O(n)`.
 
 You will see later that other [sorting algorithms][sorting-algorithm] have more efficient times than this one.
 
